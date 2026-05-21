@@ -80,9 +80,9 @@ export default function PrivacyPage() {
 
         <div className="wrap">
           <div className="legal-grid">
-            {/* <aside className="legal-aside">
+            <aside className="legal-aside">
               <TableOfContents items={sections} />
-            </aside> */}
+            </aside>
 
             <div className="legal-content">
               <Sec id="info" n="01" t="Information we collect">

@@ -3,12 +3,29 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { RevealOnScroll } from "../components/RevealOnScroll";
+import { TableOfContents, type TocItem } from "../components/TableOfContents";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Kiɗa",
   description:
     "The agreement between you and Kiɗa Audio Inc. when you use our apps, the Marketplace, and the Pro subscription.",
 };
+
+const sections: TocItem[] = [
+  { id: "basics",      n: "01", t: "The basics" },
+  { id: "account",     n: "02", t: "Your account" },
+  { id: "license",     n: "03", t: "License to use Kiɗa" },
+  { id: "content",     n: "04", t: "Your content & the Marketplace" },
+  { id: "pro",         n: "05", t: "Pro subscription" },
+  { id: "conduct",     n: "06", t: "Acceptable use" },
+  { id: "ip",          n: "07", t: "Our intellectual property" },
+  { id: "thirdparty",  n: "08", t: "Third-party services" },
+  { id: "termination", n: "09", t: "Termination" },
+  { id: "disclaimers", n: "10", t: "Disclaimers & limits" },
+  { id: "law",         n: "11", t: "Governing law & disputes" },
+  { id: "changes",     n: "12", t: "Changes to these terms" },
+  { id: "contact",     n: "13", t: "Contact" },
+];
 
 function Sec({
   id,
@@ -62,6 +79,10 @@ export default function TermsPage() {
 
         <div className="wrap">
           <div className="legal-grid">
+            <aside className="legal-aside">
+              <TableOfContents items={sections} />
+            </aside>
+
             <div className="legal-content">
               <Sec id="basics" n="01" t="The basics">
                 <p>

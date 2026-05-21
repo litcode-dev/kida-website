@@ -4,7 +4,7 @@ export function Navbar() {
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a href="#top" className="nav-logo">
+        <a href="/" className="nav-logo">
           <span className="mark">
             <KidaMark size={26} />
           </span>
