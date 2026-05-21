@@ -5,7 +5,7 @@ import { useState } from "react";
 const items = [
   {
     q: "Which versions of Ableton Live are supported?",
-    a: "Kiɗa is built around Ableton Live 12’s new ScaleInformation and AudioClip APIs. Live 11 sessions open in compatibility mode — setlists trigger scenes, but per-clip key data isn’t available.",
+    a: "Kiɗa supports Ableton Live 12 and 11. It allows you to export your entire setlist straight to Ableton Live's Arrangement View—automatically laying out clips, tempo maps, tracks, and song markers. Advanced features like ScaleInformation and AudioClip APIs require Live 12.",
   },
   {
     q: "Is there an Android version?",

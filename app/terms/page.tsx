@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { NewsletterForm } from "../components/NewsletterForm";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 
 export const metadata: Metadata = {
@@ -271,6 +272,8 @@ export default function TermsPage() {
                   <a href="mailto:legal@kida.audio">legal@kida.audio</a>
                 </p>
               </Sec>
+
+              <NewsletterForm />
 
               <div className="legal-cta reveal">
                 <div className="legal-cta-copy">

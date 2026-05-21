@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { Icon } from "./Icon";
 import { TextGenerateEffect } from "./TextGenerateEffect";
 import { TypewriterHeadline } from "./TypewriterHeadline";
+import { PhoneMock } from "./PhoneMock";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -62,20 +62,7 @@ export function Hero() {
             </div>
           </div>
           <div className="reveal" style={{ transitionDelay: "120ms" }}>
-            <div className="device-wrap">
-              <div className="phone">
-                <div className="phone-screen">
-                  <Image
-                    src="/IMG_4569.png"
-                    alt="Kiɗa app — studio view"
-                    fill
-                    sizes="320px"
-                    priority
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-              </div>
-            </div>
+            <PhoneMock />
           </div>
         </div>
       </div>
