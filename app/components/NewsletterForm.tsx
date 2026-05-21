@@ -9,13 +9,15 @@ export function NewsletterForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
     setMessage("");
 
+    const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+
     try {
-      const res = await fetch("/api/v1/newsletter/subscribe", {
+      const res = await fetch(`${base}/api/v1/newsletter/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
