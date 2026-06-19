@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useDownloadModal } from "./DownloadModalProvider";
 
 const KEYS = [
   "C",
@@ -73,6 +74,7 @@ function PackRow({
 export function KidaLanding() {
   const [activeKey, setActiveKey] = useState(2); // D
   const [playing, setPlaying] = useState(false);
+  const { open } = useDownloadModal();
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const engineRef = useRef<Engine | null>(null);
@@ -561,9 +563,20 @@ export function KidaLanding() {
             drones, and walk on stage with nothing but confidence.
           </p>
           <div className="hero-actions">
-            <a className="btn btn-solid" href="#get">
-              GET KIƊA FREE
-            </a>
+            <button
+              type="button"
+              className="btn btn-solid"
+              onClick={() => open("macos")}
+            >
+              DOWNLOAD FOR MAC
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => open("windows")}
+            >
+              DOWNLOAD FOR WINDOWS
+            </button>
             <a className="btn btn-ghost" href="#how">
               90-SEC DEMO ↓
             </a>

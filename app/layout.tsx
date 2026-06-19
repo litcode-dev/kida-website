@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { DownloadModalProvider } from "./components/DownloadModalProvider";
 
 export const metadata: Metadata = {
   title: "Kiɗa — Your setlist. Your stage. Your sound.",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <DownloadModalProvider>{children}</DownloadModalProvider>
+      </body>
     </html>
   );
 }
