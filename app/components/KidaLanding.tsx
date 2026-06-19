@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useDownloadModal } from "./DownloadModalProvider";
 
 const KEYS = [
   "C",
@@ -73,6 +74,7 @@ function PackRow({
 export function KidaLanding() {
   const [activeKey, setActiveKey] = useState(2); // D
   const [playing, setPlaying] = useState(false);
+  const { open } = useDownloadModal();
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const engineRef = useRef<Engine | null>(null);
@@ -536,9 +538,13 @@ export function KidaLanding() {
           <a href="#marketplace">LIBRARY</a>
           <a href="#pricing">PRICING</a>
         </div>
-        <a className="nav-cta" href="#get">
+        <button
+          type="button"
+          className="nav-cta"
+          onClick={() => open("macos")}
+        >
           GET KIƊA
-        </a>
+        </button>
       </nav>
 
       <header>
@@ -561,9 +567,20 @@ export function KidaLanding() {
             drones, and walk on stage with nothing but confidence.
           </p>
           <div className="hero-actions">
-            <a className="btn btn-solid" href="#get">
-              GET KIƊA FREE
-            </a>
+            <button
+              type="button"
+              className="btn btn-solid"
+              onClick={() => open("macos")}
+            >
+              DOWNLOAD FOR MAC
+            </button>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => open("windows")}
+            >
+              DOWNLOAD FOR WINDOWS
+            </button>
             <a className="btn btn-ghost" href="#how">
               90-SEC DEMO ↓
             </a>
@@ -822,9 +839,22 @@ export function KidaLanding() {
               <li>Offline playback</li>
               <li>Marketplace browsing</li>
             </ul>
-            <a className="btn btn-ghost" href="#get">
-              DOWNLOAD FREE
-            </a>
+            <div className="tier-ctas">
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => open("macos")}
+              >
+                DOWNLOAD FOR MAC
+              </button>
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => open("windows")}
+              >
+                DOWNLOAD FOR WINDOWS
+              </button>
+            </div>
           </div>
           <div className="tier pro reveal">
             <h3>Pro</h3>
@@ -906,9 +936,22 @@ export function KidaLanding() {
           <br />
           Kiɗa runs the set.
         </h2>
-        <a className="btn btn-solid reveal" href="#">
-          DOWNLOAD KIƊA — FREE
-        </a>
+        <div className="cta-ctas reveal">
+          <button
+            type="button"
+            className="btn btn-solid"
+            onClick={() => open("macos")}
+          >
+            DOWNLOAD FOR MAC
+          </button>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            onClick={() => open("windows")}
+          >
+            DOWNLOAD FOR WINDOWS
+          </button>
+        </div>
         <p className="cta-note reveal">
           iOS · ANDROID · DESKTOP · VST3 — ONE LICENSE, EVERY PLATFORM
         </p>
