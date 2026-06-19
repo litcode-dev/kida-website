@@ -29,7 +29,7 @@ export function DownloadModal({
 
   useEffect(() => {
     inputRef.current?.focus();
-  }, []);
+  }, [platform]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -102,7 +102,9 @@ export function DownloadModal({
           type="button"
           className="dl-close"
           aria-label="Close"
-          onClick={onClose}
+          onClick={() => {
+            if (status !== "loading") onClose();
+          }}
           disabled={status === "loading"}
         >
           ✕
