@@ -78,17 +78,17 @@ export function DownloadModal({
     const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
 
     try {
-      const res = await fetch(`${base}/api/v1/desktop/request-download`, {
+      const res = await fetch(`${base}/api/v1/app/download-request`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, platform }),
+        body: JSON.stringify({ email, os: platform }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
         setMessage(
-          data.detail
+          res.status === 422
             ? "Please enter a valid email address."
             : "Something went wrong. Please try again.",
         );
