@@ -377,3 +377,6 @@ footer a:hover{color:var(--lemon)}
 @media (prefers-reduced-motion:reduce){
   .dl-backdrop,.dl-panel{animation:none}
 }
+.tier-ctas{display:flex;flex-direction:column;gap:10px}
+.tier-ctas .btn{text-align:center}
+.cta-ctas{margin-top:42px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
