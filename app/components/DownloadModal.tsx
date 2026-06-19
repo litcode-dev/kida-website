@@ -24,8 +24,14 @@ export function DownloadModal({
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   const other: Platform = platform === "macos" ? "windows" : "macos";
+
+  useEffect(() => {
+    const trigger = document.activeElement as HTMLElement | null;
+    return () => trigger?.focus();
+  }, []);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -46,6 +52,23 @@ export function DownloadModal({
       document.body.style.overflow = prev;
     };
   }, []);
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
+    if (e.key !== "Tab") return;
+    const focusables = panelRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusables || focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   async function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -92,11 +115,13 @@ export function DownloadModal({
       }}
     >
       <div
+        ref={panelRef}
         className="dl-panel"
         role="dialog"
         aria-modal="true"
         aria-labelledby="dl-title"
         onClick={(e) => e.stopPropagation()}
+        onKeyDown={handleKeyDown}
       >
         <button
           type="button"
@@ -111,8 +136,8 @@ export function DownloadModal({
         </button>
 
         {status === "success" ? (
-          <div className="dl-success">
-            <span className="dl-check" aria-hidden>
+          <div className="dl-success" role="status">
+            <span className="dl-check" aria-hidden="true">
               ✓
             </span>
             <h3 id="dl-title">You&apos;re all set</h3>
@@ -145,7 +170,7 @@ export function DownloadModal({
                   disabled={status === "loading"}
                 >
                   {status === "loading" && (
-                    <span className="dl-spinner" aria-hidden />
+                    <span className="dl-spinner" aria-hidden="true" />
                   )}
                   SEND LINK
                 </button>
