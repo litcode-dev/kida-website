@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kiɗa — Marketing Website
+
+The marketing and landing site for **Kiɗa**, the live-performance companion for working musicians — setlists, Ableton Live control, built-in drones, and MIDI, across mobile, desktop, and as a plugin.
+
+Built with the Next.js App Router, React 19, Tailwind CSS v4, GSAP scroll animations, and a Three.js canvas backdrop.
+
+## Screenshots
+
+| | |
+| --- | --- |
+| ![Hero](docs/screenshots/01-hero.png) | ![Features](docs/screenshots/02-features.png) |
+| Hero — "Your setlist. Your stage. Your sound." | Features — built for the stage, not the spreadsheet |
+| ![Platforms](docs/screenshots/03-platforms.png) | ![Library](docs/screenshots/04-library.png) |
+| Platforms — phone, standalone, and plugin | Library — drones, setlists, and packs |
+| ![Testimonial](docs/screenshots/05-testimonial.png) | ![Pricing](docs/screenshots/06-pricing.png) |
+| Testimonial | Pricing — Free and Pro |
+| ![FAQ](docs/screenshots/07-faq.png) | ![Get Kida](docs/screenshots/08-get-kida.png) |
+| FAQ | Get Kiɗa — closing download CTA |
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org) 16 (App Router)
+- **UI:** React 19
+- **Styling:** Tailwind CSS v4 (via `@tailwindcss/postcss`)
+- **Animation:** [GSAP](https://gsap.com) + ScrollTrigger
+- **3D / canvas:** [Three.js](https://threejs.org)
+- **Language:** TypeScript
+- **Package manager:** pnpm
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command      | Description                       |
+| ------------ | --------------------------------- |
+| `pnpm dev`   | Start the development server      |
+| `pnpm build` | Build the production bundle       |
+| `pnpm start` | Serve the production build        |
+| `pnpm lint`  | Run ESLint                        |
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+The site captures emails (app download requests and newsletter signups) and forwards them to a separate backend API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable                   | Description                                                                                  |
+| -------------------------- | -------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_API_BASE_URL` | Base URL of the backend API. Defaults to an empty string (same origin) when unset.          |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Backend endpoints consumed:
 
-## Deploy on Vercel
+- `POST /api/v1/app/download-request` — desktop (Mac/Windows) download via email
+- `POST /api/v1/newsletter/subscribe` — newsletter signup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+  layout.tsx                 Root layout + site metadata
+  page.tsx                   Home route (renders KidaLanding)
+  globals.css                Global styles / Tailwind entry
+  privacy/page.tsx           Privacy policy
+  terms/page.tsx             Terms of service
+  components/
+    KidaLanding.tsx          Main landing page (the live page)
+    DownloadModal*.tsx        Email-capture download modal + provider
+    NewsletterForm.tsx       Newsletter signup form
+    Hero, Navbar, Pricing,   Section + UI components
+    Footer, FAQ, Bento, ...
+public/                      Static assets and images
+```
+
+> **Note:** The live landing page is `app/components/KidaLanding.tsx`, rendered by `app/page.tsx`. The standalone `Hero` / `Navbar` / `Pricing` / `Footer` components and `page copy.tsx` are an earlier, unused variant.
+
+## Deployment
+
+Deploy on [Vercel](https://vercel.com/new). Set `NEXT_PUBLIC_API_BASE_URL` in the project's environment variables so the email-capture forms reach the backend.
