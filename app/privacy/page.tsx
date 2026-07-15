@@ -193,9 +193,9 @@ export default function PrivacyPage() {
 
               <Sec id="intl" n="08" t="International transfers">
                 <p>
-                  We are based in the United States. If you use Kiɗa from
-                  outside the US, your information will be processed in
-                  the US under appropriate safeguards (Standard Contractual
+                  We are based in Nigeria. If you use Kiɗa from outside
+                  Nigeria, your information will be processed in Nigeria
+                  under appropriate safeguards (Standard Contractual
                   Clauses where applicable).
                 </p>
               </Sec>
