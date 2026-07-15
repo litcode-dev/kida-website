@@ -8,7 +8,7 @@ import { TableOfContents, type TocItem } from "../components/TableOfContents";
 export const metadata: Metadata = {
   title: "Terms of Service — Kiɗa",
   description:
-    "The agreement between you and Kiɗa Audio Inc. when you use our apps, the Marketplace, and the Pro subscription.",
+    "The agreement between you and Kiɗa Audio Ltd. when you use our apps, the Marketplace, and the Pro subscription.",
 };
 
 const sections: TocItem[] = [
@@ -68,7 +68,7 @@ export default function TermsPage() {
               <p className="legal-lead">
                 <span className="legal-dropcap">B</span>y using Kiɗa, you
                 agree to these terms — the rules of the room between you
-                and Kiɗa Audio Inc. We&rsquo;ve kept them short and
+                and Kiɗa Audio Ltd. We&rsquo;ve kept them short and
                 concrete: what you can do with the app, what we promise in
                 return, and what happens if something goes sideways.
               </p>
@@ -205,7 +205,7 @@ export default function TermsPage() {
                 <p>
                   Kiɗa, the wave mark, the app code, the design system,
                   and every built-in drone and sample we publish are owned
-                  by Kiɗa Audio Inc. or our licensors. The license we
+                  by Kiɗa Audio Ltd. or our licensors. The license we
                   give you in Section&nbsp;03 doesn&rsquo;t transfer any
                   of that ownership.
                 </p>
@@ -262,11 +262,11 @@ export default function TermsPage() {
 
               <Sec id="law" n="11" t="Governing law & disputes">
                 <p>
-                  These terms are governed by the laws of the State of
-                  Delaware, United States, without regard to its
+                  These terms are governed by the laws of the Federal
+                  Republic of Nigeria, without regard to its
                   conflict-of-laws rules. Disputes will be resolved in the
-                  state or federal courts located in New Castle County,
-                  Delaware, and we both consent to that jurisdiction.
+                  courts of Lagos State, Nigeria, and we both consent to
+                  that jurisdiction.
                 </p>
                 <p>
                   Nothing here limits any rights you have under mandatory
@@ -285,9 +285,9 @@ export default function TermsPage() {
 
               <Sec id="contact" n="13" t="Contact">
                 <p>
-                  Kiɗa Audio Inc.
+                  Kiɗa Audio Ltd.
                   <br />
-                  Lisbon &middot; Brooklyn
+                  Lagos, Nigeria
                 </p>
                 <p>
                   <a href="mailto:legal@kida.audio">legal@kida.audio</a>

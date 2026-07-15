@@ -67,7 +67,7 @@ export default function PrivacyPage() {
                 in plain English.
               </h1>
               <p className="legal-lead">
-                <span className="legal-dropcap">K</span>iɗa Audio Inc. takes
+                <span className="legal-dropcap">K</span>iɗa Audio Ltd. takes
                 care of your data the way a good engineer takes care of a
                 live mix — minimum gain, maximum clarity, nothing routed
                 somewhere it doesn&rsquo;t belong. This page explains what
@@ -193,9 +193,9 @@ export default function PrivacyPage() {
 
               <Sec id="intl" n="08" t="International transfers">
                 <p>
-                  We are based in the United States. If you use Kiɗa from
-                  outside the US, your information will be processed in
-                  the US under appropriate safeguards (Standard Contractual
+                  We are based in Nigeria. If you use Kiɗa from outside
+                  Nigeria, your information will be processed in Nigeria
+                  under appropriate safeguards (Standard Contractual
                   Clauses where applicable).
                 </p>
               </Sec>
@@ -210,9 +210,9 @@ export default function PrivacyPage() {
 
               <Sec id="contact" n="10" t="Contact">
                 <p>
-                  Kiɗa Audio Inc.
+                  Kiɗa Audio Ltd.
                   <br />
-                  Lisbon &middot; Brooklyn
+                  Lagos, Nigeria
                 </p>
                 <p>
                   <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>

@@ -66,19 +66,21 @@ Backend endpoints consumed:
 app/
   layout.tsx                 Root layout + site metadata
   page.tsx                   Home route (renders KidaLanding)
-  globals.css                Global styles / Tailwind entry
+  globals.css                Global styles + design system
   privacy/page.tsx           Privacy policy
   terms/page.tsx             Terms of service
   components/
-    KidaLanding.tsx          Main landing page (the live page)
+    KidaLanding.tsx          Home landing page (the live page)
     DownloadModal*.tsx        Email-capture download modal + provider
+    Navbar.tsx, Footer.tsx   Shared chrome for the legal pages
+    TableOfContents.tsx      Sticky "on this page" nav (legal pages)
+    RevealOnScroll.tsx       Scroll-reveal animation helper
     NewsletterForm.tsx       Newsletter signup form
-    Hero, Navbar, Pricing,   Section + UI components
-    Footer, FAQ, Bento, ...
+    Hero, Pricing, FAQ, ...  Legacy section components (see note)
 public/                      Static assets and images
 ```
 
-> **Note:** The live landing page is `app/components/KidaLanding.tsx`, rendered by `app/page.tsx`. The standalone `Hero` / `Navbar` / `Pricing` / `Footer` components and `page copy.tsx` are an earlier, unused variant.
+> **Note:** The home page (`/`) is a single self-contained component, `app/components/KidaLanding.tsx`, rendered by `app/page.tsx`. The `/terms` and `/privacy` pages instead compose the shared `Navbar`, `Footer`, `NewsletterForm`, `TableOfContents`, and `RevealOnScroll` components, styled by the `legal-*` and shared classes in `globals.css`. The remaining section components (`Hero`, `Pricing`, `Bento`, `FAQ`, …) and `page copy.tsx` are an earlier, unused variant of the landing page.
 
 ## Deployment
 
