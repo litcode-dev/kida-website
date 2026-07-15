@@ -299,6 +299,9 @@ footer{
 footer a:hover{color:var(--lemon)}
 
 .reveal{opacity:0;transform:translateY(34px)}
+/* RevealOnScroll (inner pages) toggles `.in`; KidaLanding drives its
+   own reveals via GSAP inline styles, so those never receive `.in`. */
+.reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
 
 @media(max-width:760px){
   nav{padding:14px 20px}
@@ -380,3 +383,188 @@ footer a:hover{color:var(--lemon)}
 .tier-ctas{display:flex;flex-direction:column;gap:10px}
 .tier-ctas .btn{text-align:center}
 .cta-ctas{margin-top:42px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ==========================================================================
+   Shared building blocks for the component-based pages (terms, privacy)
+   ========================================================================== */
+
+/* width-constrained container */
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 36px}
+
+/* status / eyebrow dot */
+.dot{
+  width:7px;height:7px;border-radius:50%;background:var(--lemon);
+  display:inline-block;vertical-align:middle;margin-right:9px;
+  box-shadow:0 0 8px var(--lemon);
+}
+
+/* button variants used by the inner pages */
+.btn-primary{background:var(--lemon);color:var(--ink);font-weight:500;box-shadow:0 0 30px rgba(201,255,46,.28)}
+.btn-primary:hover{box-shadow:0 0 46px rgba(201,255,46,.5)}
+.btn-primary[disabled]{opacity:.6;cursor:default;transform:none;box-shadow:none}
+.btn-sm{padding:11px 20px;font-size:12.5px}
+
+/* ---------- component navbar (Navbar.tsx) ---------- */
+.nav .nav-inner{
+  width:100%;max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.04em;color:#f2ffd9;
+}
+.nav-logo .mark{display:inline-flex;color:var(--lemon)}
+.nav .nav-cta{background:none;padding:0;border-radius:0;display:flex;align-items:center;gap:14px}
+.nav .nav-cta:hover{transform:none;box-shadow:none}
+
+/* ---------- component footer (Footer.tsx) ---------- */
+footer#download{display:block;padding:80px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
+.foot-brand{max-width:290px}
+.foot-brand .nav-logo{margin-bottom:16px}
+.foot-brand p{color:var(--dim);font-size:14px;line-height:1.6}
+.foot-col h5{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text);margin-bottom:16px;
+}
+.foot-col a{display:block;color:var(--dim);font-size:14px;padding:5px 0;transition:color .2s}
+.foot-col a:hover{color:var(--lemon)}
+.foot-bot{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.06em;
+}
+.foot-bot .status{display:flex;align-items:center}
+.foot-bot .status .dot{background:#5ce08a;box-shadow:0 0 8px #5ce08a}
+
+/* ---------- newsletter block (NewsletterForm.tsx) ---------- */
+.newsletter-block{
+  margin-top:56px;padding:36px 40px;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);
+  display:flex;justify-content:space-between;align-items:center;gap:36px;flex-wrap:wrap;
+}
+.newsletter-copy{max-width:420px;flex:1 1 300px}
+.newsletter-copy h3{font-family:var(--display);font-weight:500;font-size:22px;color:#f2ffd9;margin:8px 0 10px;letter-spacing:.01em}
+.newsletter-copy p{color:var(--dim);font-size:15px}
+.newsletter-form{flex:1 1 300px;min-width:260px}
+.newsletter-field{display:flex;gap:10px;flex-wrap:wrap}
+.newsletter-input{
+  flex:1;min-width:0;font-family:var(--mono);font-size:14px;color:var(--text);
+  background:rgba(9,11,6,.7);border:1px solid var(--line);border-radius:4px;padding:13px 14px;
+  transition:border-color .2s;
+}
+.newsletter-input:focus{outline:none;border-color:var(--lemon-dim)}
+.newsletter-input::placeholder{color:var(--dim)}
+.newsletter-field .btn{white-space:nowrap}
+.newsletter-success{display:flex;align-items:center;gap:10px;color:var(--lemon);font-size:15px}
+.newsletter-error{margin-top:10px;font-family:var(--mono);font-size:12px;color:#ff6a6a}
+.newsletter-spinner{
+  width:13px;height:13px;border-radius:50%;display:inline-block;vertical-align:-1px;margin-right:8px;
+  border:2px solid rgba(9,11,6,.35);border-top-color:var(--ink);animation:dl-spin .7s linear infinite;
+}
+
+/* ==========================================================================
+   Legal pages (terms of service, privacy policy)
+   ========================================================================== */
+.legal-page{display:block}
+
+/* hero — overrides the full-viewport <header> element rule */
+.legal-hero{
+  position:relative;min-height:auto;overflow:hidden;display:block;padding:150px 0 0;
+}
+.legal-hero-glow{
+  position:absolute;inset:-20% 0 auto 0;height:560px;pointer-events:none;
+  background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,255,46,.14),transparent 70%);
+}
+.legal-hero-inner{position:relative;z-index:2;max-width:760px}
+.legal-title{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(46px,8vw,92px);line-height:.98;letter-spacing:.01em;
+  color:#f2ffd9;text-shadow:0 0 50px rgba(201,255,46,.22);
+}
+.legal-lead{
+  margin-top:26px;max-width:640px;font-size:clamp(16px,2vw,19px);color:var(--text);line-height:1.7;
+}
+.legal-lead::after{content:"";display:table;clear:both}
+.legal-dropcap{
+  float:left;font-family:var(--display);font-weight:900;font-size:58px;line-height:.78;
+  color:var(--lemon);margin:6px 14px 0 0;
+}
+.legal-rule{
+  margin-top:70px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line) 12%,var(--line) 88%,transparent);
+}
+
+/* two-column body: sticky TOC + content */
+.legal-grid{
+  display:grid;grid-template-columns:232px minmax(0,1fr);gap:60px;
+  padding:60px 0 40px;align-items:start;
+}
+.legal-aside{position:relative}
+
+/* table of contents — <nav>, so reset the fixed-navbar element rules */
+.legal-toc{
+  position:sticky;top:104px;inset:auto;
+  display:block;padding:0;background:none;
+}
+.legal-toc-head{
+  font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:18px;
+}
+.legal-toc ol{list-style:none}
+.legal-toc-item a{
+  display:flex;gap:12px;align-items:baseline;padding:7px 0;
+  font-size:14px;color:var(--dim);transition:color .2s;
+}
+.legal-toc-item .n{font-family:var(--mono);font-size:11px;color:var(--lemon-dim);transition:color .2s}
+.legal-toc-item a:hover{color:var(--text)}
+.legal-toc-item.active a{color:#f2ffd9}
+.legal-toc-item.active .n{color:var(--lemon)}
+
+/* sections — overrides the 130px-padded <section> element rule */
+.legal-content{min-width:0}
+.legal-sec{
+  max-width:none;margin:0 0 46px;padding:0 0 46px;
+  border-bottom:1px solid var(--line);
+}
+.legal-sec:last-of-type{border-bottom:none;margin-bottom:0}
+.legal-sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px}
+.legal-sec-num{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--violet)}
+.legal-sec-head h2{
+  font-family:var(--display);font-weight:500;letter-spacing:.01em;max-width:none;
+  font-size:clamp(22px,3vw,28px);line-height:1.2;color:#f2ffd9;
+}
+.legal-sec-body{color:var(--dim);font-size:16px;line-height:1.7}
+.legal-sec-body p{margin-bottom:16px}
+.legal-sec-body p:last-child{margin-bottom:0}
+.legal-sec-body strong{color:var(--text);font-weight:600}
+.legal-sec-body a{
+  color:var(--lemon);text-decoration:underline;text-underline-offset:3px;
+  text-decoration-color:var(--lemon-dim);transition:text-decoration-color .2s;
+}
+.legal-sec-body a:hover{text-decoration-color:var(--lemon)}
+.legal-list{list-style:none;margin:6px 0 16px}
+.legal-list li{position:relative;padding:6px 0 6px 24px}
+.legal-list li::before{content:'▸';position:absolute;left:2px;color:var(--violet)}
+
+/* closing CTA card */
+.legal-cta{
+  margin-top:56px;padding:40px;border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+}
+.legal-cta-copy{max-width:460px;flex:1 1 300px}
+.legal-cta-copy .eyebrow{display:flex;align-items:center;margin-bottom:14px}
+.legal-cta-copy h3{font-family:var(--display);font-weight:500;font-size:22px;color:#f2ffd9;margin:0 0 10px;letter-spacing:.01em}
+.legal-cta-copy p{color:var(--dim);font-size:15px}
+.legal-cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .legal-grid{grid-template-columns:1fr;gap:0}
+  .legal-aside{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:760px){
+  .wrap{padding:0 20px}
+  .legal-hero{padding-top:118px}
+  .legal-cta,.newsletter-block{padding:28px 24px}
+}
