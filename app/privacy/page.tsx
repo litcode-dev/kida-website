@@ -67,7 +67,7 @@ export default function PrivacyPage() {
                 in plain English.
               </h1>
               <p className="legal-lead">
-                <span className="legal-dropcap">K</span>iɗa Audio Inc. takes
+                <span className="legal-dropcap">K</span>iɗa Audio Ltd. takes
                 care of your data the way a good engineer takes care of a
                 live mix — minimum gain, maximum clarity, nothing routed
                 somewhere it doesn&rsquo;t belong. This page explains what
@@ -210,7 +210,7 @@ export default function PrivacyPage() {
 
               <Sec id="contact" n="10" t="Contact">
                 <p>
-                  Kiɗa Audio Inc.
+                  Kiɗa Audio Ltd.
                   <br />
                   Lagos, Nigeria
                 </p>

@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div className="foot-bot">
-          <span>© 2026 Kiɗa Audio Inc.</span>
+          <span>© 2026 Kiɗa Audio Ltd.</span>
           <span className="status">
             <span className="dot" />
             All systems operational
