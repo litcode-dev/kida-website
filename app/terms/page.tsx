@@ -5,10 +5,23 @@ import { NewsletterForm } from "../components/NewsletterForm";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
 
+const description =
+  "The agreement between you and Kiɗa Audio Ltd. when you use our apps, the Marketplace, and the Pro subscription.";
+
 export const metadata: Metadata = {
-  title: "Terms of Service — Kiɗa",
-  description:
-    "The agreement between you and Kiɗa Audio Ltd. when you use our apps, the Marketplace, and the Pro subscription.",
+  title: "Terms of Service",
+  description,
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service — Kiɗa",
+    description,
+    url: "/terms",
+    type: "article",
+  },
+  twitter: {
+    title: "Terms of Service — Kiɗa",
+    description,
+  },
 };
 
 const sections: TocItem[] = [

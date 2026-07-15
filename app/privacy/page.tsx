@@ -4,10 +4,23 @@ import { Navbar } from "../components/Navbar";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
 
+const description =
+  "How Kiɗa collects, uses, and protects the information you give us when you use our apps and the Marketplace.";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy — Kiɗa",
-  description:
-    "How Kiɗa collects, uses, and protects the information you give us when you use our apps and the Marketplace.",
+  title: "Privacy Policy",
+  description,
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy — Kiɗa",
+    description,
+    url: "/privacy",
+    type: "article",
+  },
+  twitter: {
+    title: "Privacy Policy — Kiɗa",
+    description,
+  },
 };
 
 // const lastUpdated = "May 19, 2026";
