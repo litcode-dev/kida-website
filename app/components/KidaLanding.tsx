@@ -815,8 +815,7 @@ export function KidaLanding() {
           just play it.”
         </blockquote>
         <div className="who reveal">
-          <b>Onye Adeleke</b>Producer &amp; MD · Afrobeat / Worship circuit, Lagos
-          → London
+          <b>Audu Samaila</b>MD · Sujada Project · Lagos, Nigeria
         </div>
       </section>
 
