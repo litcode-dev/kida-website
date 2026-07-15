@@ -262,11 +262,11 @@ export default function TermsPage() {
 
               <Sec id="law" n="11" t="Governing law & disputes">
                 <p>
-                  These terms are governed by the laws of the State of
-                  Delaware, United States, without regard to its
+                  These terms are governed by the laws of the Federal
+                  Republic of Nigeria, without regard to its
                   conflict-of-laws rules. Disputes will be resolved in the
-                  state or federal courts located in New Castle County,
-                  Delaware, and we both consent to that jurisdiction.
+                  courts of Lagos State, Nigeria, and we both consent to
+                  that jurisdiction.
                 </p>
                 <p>
                   Nothing here limits any rights you have under mandatory
@@ -287,7 +287,7 @@ export default function TermsPage() {
                 <p>
                   Kiɗa Audio Inc.
                   <br />
-                  Lisbon &middot; Brooklyn
+                  Lagos, Nigeria
                 </p>
                 <p>
                   <a href="mailto:legal@kida.audio">legal@kida.audio</a>
