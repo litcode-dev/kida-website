@@ -21,6 +21,9 @@ const KEYS = [
   "B",
 ];
 
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.litecode.kida";
+
 type PackItem = {
   genre: string;
   title: string;
@@ -581,6 +584,14 @@ export function KidaLanding() {
             >
               DOWNLOAD FOR WINDOWS
             </button>
+            <a
+              className="btn btn-ghost"
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GET IT ON GOOGLE PLAY
+            </a>
             <a className="btn btn-ghost" href="#how">
               90-SEC DEMO ↓
             </a>
@@ -853,6 +864,14 @@ export function KidaLanding() {
               >
                 DOWNLOAD FOR WINDOWS
               </button>
+              <a
+                className="btn btn-ghost"
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GET IT ON GOOGLE PLAY
+              </a>
             </div>
           </div>
           <div className="tier pro reveal">
@@ -950,6 +969,14 @@ export function KidaLanding() {
           >
             DOWNLOAD FOR WINDOWS
           </button>
+          <a
+            className="btn btn-ghost"
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GET IT ON GOOGLE PLAY
+          </a>
         </div>
         <p className="cta-note reveal">
           iOS · ANDROID · DESKTOP · VST3 — ONE LICENSE, EVERY PLATFORM

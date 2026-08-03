@@ -41,6 +41,13 @@ export function Footer() {
             <a href="#features">Features</a>
             <a href="#marketplace">Library</a>
             <a href="#pricing">Pricing</a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.litecode.kida"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get it on Google Play
+            </a>
             <a href="#">Changelog</a>
             <a href="#">Roadmap</a>
           </div>
