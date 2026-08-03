@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           justifyContent: "space-between",
           background: "#090b06",
           backgroundImage:
-            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,255,46,0.18), transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(31,191,98,0.18), transparent 70%)",
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             width={92}
             height={92}
             fill="none"
-            stroke="#c9ff2e"
+            stroke="#1fbf62"
             strokeWidth={2.6}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -46,7 +46,7 @@ export default function OpengraphImage() {
               color: "#f2ffd9",
             }}
           >
-            Ki<span style={{ color: "#c9ff2e" }}>ɗ</span>a
+            Ki<span style={{ color: "#1fbf62" }}>ɗ</span>a
           </div>
         </div>
 
@@ -64,7 +64,7 @@ export default function OpengraphImage() {
             }}
           >
             <span>Your setlist. Your stage.</span>
-            <span style={{ color: "#c9ff2e" }}>Your sound.</span>
+            <span style={{ color: "#1fbf62" }}>Your sound.</span>
           </div>
           <div style={{ display: "flex", fontSize: 30, color: "#8a9a72", maxWidth: 940 }}>
             The live-performance companion for working musicians — setlists,
@@ -85,7 +85,7 @@ export default function OpengraphImage() {
           }}
         >
           <span>iOS · Android · Desktop · Plugin</span>
-          <span style={{ color: "#c9ff2e" }}>kida.litcode.com.ng</span>
+          <span style={{ color: "#1fbf62" }}>kida.litcode.com.ng</span>
         </div>
       </div>
     ),
