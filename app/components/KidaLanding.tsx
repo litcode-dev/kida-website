@@ -108,7 +108,7 @@ export function KidaLanding() {
     camera.lookAt(0, 0.8, 0);
 
     scene.add(new THREE.AmbientLight(0x3a4a22, 1.2));
-    const topLight = new THREE.PointLight(0xc9ff2e, 1.8, 45);
+    const topLight = new THREE.PointLight(0x1fbf62, 1.8, 45);
     topLight.position.set(0, 10, 0);
     scene.add(topLight);
     const uvLight = new THREE.PointLight(0x9d8bff, 1.3, 50);
@@ -127,7 +127,7 @@ export function KidaLanding() {
     const bars = new THREE.InstancedMesh(
       barGeo,
       new THREE.MeshBasicMaterial({
-        color: 0xc9ff2e,
+        color: 0x1fbf62,
         transparent: true,
         opacity: 0.9,
       }),
@@ -170,7 +170,7 @@ export function KidaLanding() {
     const beam = new THREE.Mesh(
       new THREE.CylinderGeometry(0.1, 1.2, 12, 24, 1, true),
       new THREE.MeshBasicMaterial({
-        color: 0xc9ff2e,
+        color: 0x1fbf62,
         transparent: true,
         opacity: 0.13,
         side: THREE.DoubleSide,
@@ -231,7 +231,7 @@ export function KidaLanding() {
       pillars.forEach((p, i) => {
         const on = i === idx;
         const mat = p.material as THREE.MeshStandardMaterial;
-        mat.color.set(on ? 0xc9ff2e : 0x2a361a);
+        mat.color.set(on ? 0x1fbf62 : 0x2a361a);
         mat.emissive.set(on ? 0x9bd400 : 0x090b06);
         if (!reduced) {
           gsap.to(p.scale, {
