@@ -14,9 +14,9 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#090b06",
+          background: "#ffffff",
           backgroundImage:
-            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(31,191,98,0.18), transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(12,128,71,0.10), transparent 70%)",
           padding: "72px 80px",
           fontFamily: "sans-serif",
         }}
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             width={92}
             height={92}
             fill="none"
-            stroke="#1fbf62"
+            stroke="#0c8047"
             strokeWidth={2.6}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -43,10 +43,10 @@ export default function OpengraphImage() {
               fontSize: 92,
               fontWeight: 900,
               letterSpacing: "-0.02em",
-              color: "#f2ffd9",
+              color: "#0a0f05",
             }}
           >
-            Ki<span style={{ color: "#1fbf62" }}>ɗ</span>a
+            Ki<span style={{ color: "#0c8047" }}>ɗ</span>a
           </div>
         </div>
 
@@ -60,13 +60,13 @@ export default function OpengraphImage() {
               fontWeight: 800,
               lineHeight: 1.08,
               letterSpacing: "-0.02em",
-              color: "#f2ffd9",
+              color: "#0a0f05",
             }}
           >
             <span>Your setlist. Your stage.</span>
-            <span style={{ color: "#1fbf62" }}>Your sound.</span>
+            <span style={{ color: "#0c8047" }}>Your sound.</span>
           </div>
-          <div style={{ display: "flex", fontSize: 30, color: "#8a9a72", maxWidth: 940 }}>
+          <div style={{ display: "flex", fontSize: 30, color: "#5c6a4d", maxWidth: 940 }}>
             The live-performance companion for working musicians — setlists,
             Ableton Live control, built-in drones, MIDI ready.
           </div>
@@ -79,13 +79,13 @@ export default function OpengraphImage() {
             alignItems: "center",
             justifyContent: "space-between",
             fontSize: 26,
-            color: "#8a9a72",
-            borderTop: "1px solid #232c15",
+            color: "#5c6a4d",
+            borderTop: "1px solid #e2e8d8",
             paddingTop: 26,
           }}
         >
           <span>iOS · Android · Desktop · Plugin</span>
-          <span style={{ color: "#1fbf62" }}>kida.litcode.com.ng</span>
+          <span style={{ color: "#0c8047" }}>kida.litcode.com.ng</span>
         </div>
       </div>
     ),

@@ -271,7 +271,7 @@ function DronesViz({
               className={`note ${isNoteOn ? "on" : ""}`}
               style={{
                 transform: `translate(${x}px, ${y}px)`,
-                color: n === activeDroneNote ? (dronePlaying ? "var(--accent)" : "rgba(255,255,255,0.85)") : undefined,
+                color: n === activeDroneNote ? (dronePlaying ? "var(--accent)" : "var(--head)") : undefined,
                 fontWeight: n === activeDroneNote ? "600" : undefined,
                 // Pass custom vars to globals.css for hover scaling/offset alignment
                 ["--tx" as any]: `${x}px`,
