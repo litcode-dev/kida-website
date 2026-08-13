@@ -104,17 +104,18 @@ export function KidaLanding() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x090b06, 0.026);
+    /* fog matches the white page ground so the rig dissolves into it */
+    scene.fog = new THREE.FogExp2(0xffffff, 0.019);
 
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
     camera.position.set(0, 6, 20);
     camera.lookAt(0, 0.8, 0);
 
-    scene.add(new THREE.AmbientLight(0x3a4a22, 1.2));
-    const topLight = new THREE.PointLight(0x1fbf62, 1.8, 45);
+    scene.add(new THREE.AmbientLight(0xf2f6ec, 1.5));
+    const topLight = new THREE.PointLight(0x0c8047, 2.2, 45);
     topLight.position.set(0, 10, 0);
     scene.add(topLight);
-    const uvLight = new THREE.PointLight(0x9d8bff, 1.3, 50);
+    const uvLight = new THREE.PointLight(0x5b3fd6, 1.3, 50);
     uvLight.position.set(-14, 5, 10);
     scene.add(uvLight);
 
@@ -130,7 +131,7 @@ export function KidaLanding() {
     const bars = new THREE.InstancedMesh(
       barGeo,
       new THREE.MeshBasicMaterial({
-        color: 0x1fbf62,
+        color: 0x0c8047,
         transparent: true,
         opacity: 0.9,
       }),
@@ -141,7 +142,7 @@ export function KidaLanding() {
     const guide = new THREE.Mesh(
       new THREE.TorusGeometry(RING_R, 0.015, 8, 160),
       new THREE.MeshBasicMaterial({
-        color: 0x5d7d15,
+        color: 0x7d9a6d,
         transparent: true,
         opacity: 0.8,
       }),
@@ -157,10 +158,10 @@ export function KidaLanding() {
     for (let i = 0; i < 12; i++) {
       const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
       const mat = new THREE.MeshStandardMaterial({
-        color: 0x2a361a,
-        roughness: 0.4,
-        metalness: 0.45,
-        emissive: 0x090b06,
+        color: 0xbcc8b2,
+        roughness: 0.45,
+        metalness: 0.25,
+        emissive: 0x000000,
       });
       const m = new THREE.Mesh(pGeo, mat);
       m.position.set(Math.cos(a) * KEY_R, 0, Math.sin(a) * KEY_R);
@@ -173,9 +174,9 @@ export function KidaLanding() {
     const beam = new THREE.Mesh(
       new THREE.CylinderGeometry(0.1, 1.2, 12, 24, 1, true),
       new THREE.MeshBasicMaterial({
-        color: 0x1fbf62,
+        color: 0x0c8047,
         transparent: true,
-        opacity: 0.13,
+        opacity: 0.18,
         side: THREE.DoubleSide,
         depthWrite: false,
       }),
@@ -196,10 +197,10 @@ export function KidaLanding() {
     const dust = new THREE.Points(
       dg,
       new THREE.PointsMaterial({
-        color: 0x3a4a22,
+        color: 0x8ba07d,
         size: 0.07,
         transparent: true,
-        opacity: 0.7,
+        opacity: 0.55,
       }),
     );
     scene.add(dust);
@@ -234,8 +235,8 @@ export function KidaLanding() {
       pillars.forEach((p, i) => {
         const on = i === idx;
         const mat = p.material as THREE.MeshStandardMaterial;
-        mat.color.set(on ? 0x1fbf62 : 0x2a361a);
-        mat.emissive.set(on ? 0x9bd400 : 0x090b06);
+        mat.color.set(on ? 0x0c8047 : 0xbcc8b2);
+        mat.emissive.set(on ? 0x0a5c33 : 0x000000);
         if (!reduced) {
           gsap.to(p.scale, {
             y: on ? 4.6 : 1.8,
