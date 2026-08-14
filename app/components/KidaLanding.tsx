@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Icon } from "./Icon";
 import { useDownloadModal } from "./DownloadModalProvider";
 
 const KEYS = [
@@ -528,8 +529,6 @@ export function KidaLanding() {
 
   return (
     <>
-      <div className="scan" aria-hidden="true" />
-
       <nav>
         <a className="logo" href="#">
           <span className="led" />
@@ -571,7 +570,7 @@ export function KidaLanding() {
             drones, and walk on stage with nothing but confidence.
           </p>
           <div className="hero-actions">
-            <button
+            {/* <button
               type="button"
               className="btn btn-solid"
               onClick={() => open("macos")}
@@ -584,13 +583,14 @@ export function KidaLanding() {
               onClick={() => open("windows")}
             >
               DOWNLOAD FOR WINDOWS
-            </button>
+            </button> */}
             <a
-              className="btn btn-ghost"
+              className="btn btn-solid btn-icon"
               href={PLAY_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
+              <Icon name="googleplay" size={17} />
               GET IT ON GOOGLE PLAY
             </a>
             <a className="btn btn-ghost" href="#how">
@@ -851,7 +851,7 @@ export function KidaLanding() {
               <li>Marketplace browsing</li>
             </ul>
             <div className="tier-ctas">
-              <button
+              {/* <button
                 type="button"
                 className="btn btn-ghost"
                 onClick={() => open("macos")}
@@ -864,13 +864,14 @@ export function KidaLanding() {
                 onClick={() => open("windows")}
               >
                 DOWNLOAD FOR WINDOWS
-              </button>
+              </button> */}
               <a
-                className="btn btn-ghost"
+                className="btn btn-ghost btn-icon"
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Icon name="googleplay" size={17} />
                 GET IT ON GOOGLE PLAY
               </a>
             </div>
@@ -956,7 +957,7 @@ export function KidaLanding() {
           Kiɗa runs the set.
         </h2>
         <div className="cta-ctas reveal">
-          <button
+          {/* <button
             type="button"
             className="btn btn-solid"
             onClick={() => open("macos")}
@@ -969,13 +970,14 @@ export function KidaLanding() {
             onClick={() => open("windows")}
           >
             DOWNLOAD FOR WINDOWS
-          </button>
+          </button> */}
           <a
-            className="btn btn-ghost"
+            className="btn btn-solid btn-icon"
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
           >
+            <Icon name="googleplay" size={17} />
             GET IT ON GOOGLE PLAY
           </a>
         </div>

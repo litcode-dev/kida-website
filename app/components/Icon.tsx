@@ -2,6 +2,7 @@ type IconName =
   | "play"
   | "apple"
   | "android"
+  | "googleplay"
   | "arrow"
   | "check"
   | "link"
@@ -38,6 +39,23 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
       return (
         <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
           <path d="M6 10h12v8.5a1 1 0 0 1-1 1h-1V22a1 1 0 1 1-2 0v-2.5h-4V22a1 1 0 1 1-2 0v-2.5H7a1 1 0 0 1-1-1V10Zm-3 .75a1.5 1.5 0 1 1 3 0v5a1.5 1.5 0 1 1-3 0v-5Zm15 0a1.5 1.5 0 1 1 3 0v5a1.5 1.5 0 1 1-3 0v-5ZM7.6 4.92 6.42 3.18a.5.5 0 1 1 .82-.56L8.43 4.4A7.04 7.04 0 0 1 12 3.5c1.3 0 2.5.32 3.57.9l1.19-1.78a.5.5 0 0 1 .82.56L16.4 4.92A6.45 6.45 0 0 1 18.5 9h-13c0-1.66.79-3.13 2.1-4.08ZM9.5 7.75A.75.75 0 1 0 9.5 6.25.75.75 0 0 0 9.5 7.75Zm5 0a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+        </svg>
+      );
+    /* Google Play mark — keeps its brand colors so it stays recognisable
+       on both the white page and the black footer. */
+    case "googleplay":
+      return (
+        <svg viewBox="0 0 512 512" width={size} height={size}>
+          <path
+            fill="#00d3ff"
+            d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"
+          />
+          <path fill="#00f076" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z" />
+          <path
+            fill="#ffce00"
+            d="M472.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8z"
+          />
+          <path fill="#ff3a44" d="M104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
         </svg>
       );
     case "arrow":

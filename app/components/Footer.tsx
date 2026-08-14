@@ -42,10 +42,12 @@ export function Footer() {
             <a href="#marketplace">Library</a>
             <a href="#pricing">Pricing</a>
             <a
+              className="link-icon"
               href="https://play.google.com/store/apps/details?id=com.litecode.kida"
               target="_blank"
               rel="noopener noreferrer"
             >
+              <Icon name="googleplay" size={14} />
               Get it on Google Play
             </a>
             <a href="#">Changelog</a>
