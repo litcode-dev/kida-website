@@ -51,7 +51,7 @@ const packs: Array<{
     k: "burst-wide",
   },
   {
-    t: "Lagos Nights · Live Loops",
+    t: "Nigeria Nights · Live Loops",
     a: "by Aila Ström",
     p: "$12",
     c: "linear-gradient(160deg, #b15ce8, #7a30b8)",

@@ -223,7 +223,7 @@ export default function PrivacyPage() {
                 <p>
                   Kiɗa Audio Ltd.
                   <br />
-                  Lagos, Nigeria
+                  Nigeria
                 </p>
                 <p>
                   <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>

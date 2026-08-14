@@ -14,7 +14,7 @@ export function Testimonial() {
             <div>
               <div className="who">Onye Adeleke</div>
               <div className="what">
-                Producer &amp; MD · Afrobeat / Worship circuit, Lagos → London
+                Producer &amp; MD · Afrobeat / Worship circuit, Nigeria → London
               </div>
             </div>
           </div>

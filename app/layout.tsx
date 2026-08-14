@@ -80,7 +80,6 @@ const jsonLd = {
       logo: `${SITE_URL}/opengraph-image`,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Lagos",
         addressCountry: "NG",
       },
     },

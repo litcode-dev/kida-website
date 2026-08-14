@@ -15,7 +15,7 @@ export function Footer() {
             </a>
             <p>
               The live performance companion for working musicians. Made in
-              Lagos, Nigeria.
+              Nigeria.
             </p>
             <div
               style={{

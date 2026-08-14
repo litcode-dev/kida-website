@@ -278,8 +278,8 @@ export default function TermsPage() {
                   These terms are governed by the laws of the Federal
                   Republic of Nigeria, without regard to its
                   conflict-of-laws rules. Disputes will be resolved in the
-                  courts of Lagos State, Nigeria, and we both consent to
-                  that jurisdiction.
+                  courts of Nigeria, and we both consent to that
+                  jurisdiction.
                 </p>
                 <p>
                   Nothing here limits any rights you have under mandatory
@@ -300,7 +300,7 @@ export default function TermsPage() {
                 <p>
                   Kiɗa Audio Ltd.
                   <br />
-                  Lagos, Nigeria
+                  Nigeria
                 </p>
                 <p>
                   <a href="mailto:legal@kida.audio">legal@kida.audio</a>

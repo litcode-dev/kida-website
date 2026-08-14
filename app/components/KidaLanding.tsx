@@ -45,7 +45,7 @@ const ROW_A: PackItem[] = [
 const ROW_B: PackItem[] = [
   { genre: "DRONES", title: "Modal Drones · 12 Keys", by: "Kiɗa Studio", price: "Free" },
   { genre: "WORSHIP", title: "Sunday Set · 8 Setlists", by: "by Halls of Stone", price: "Free" },
-  { genre: "LIVE LOOPS", title: "Lagos Nights · Live Loops", by: "by Aila Ström", price: "$12", paid: true },
+  { genre: "LIVE LOOPS", title: "Nigeria Nights · Live Loops", by: "by Aila Ström", price: "$12", paid: true },
   { genre: "DRONES", title: "Just Intonation · Drones", by: "by Hana Mori", price: "Free" },
 ];
 
@@ -833,7 +833,7 @@ export function KidaLanding() {
           just play it.”
         </blockquote>
         <div className="who reveal">
-          <b>Audu Samaila</b>MD · Sujada Project · Lagos, Nigeria
+          <b>Audu Samaila</b>MD · Sujada Project · Nigeria
         </div>
       </section>
 
