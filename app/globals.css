@@ -436,9 +436,7 @@ footer ::selection{background:var(--foot-accent);color:var(--foot-bg)}
 
 /* ---------- component footer (Footer.tsx) ---------- */
 footer#download{display:block;padding:80px 0 40px}
-/* the Product column carries the longest label ("Get it on Google Play",
-   plus its mark), so it gets a little more room than the other two */
-.foot-grid{display:grid;grid-template-columns:1.6fr 1.15fr 1fr 1fr;gap:40px}
+.foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
 .foot-brand{max-width:290px}
 .foot-brand .nav-logo{margin-bottom:16px}
 .foot-brand p{color:var(--foot-dim);font-size:14px;line-height:1.6}

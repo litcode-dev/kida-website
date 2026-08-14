@@ -75,9 +75,7 @@ export default function PrivacyPage() {
             <div className="legal-hero-inner reveal">
               
               <h1 className="legal-title">
-                Privacy,
-                <br />
-                in plain English.
+                Privacy Policy
               </h1>
               <p className="legal-lead">
                 <span className="legal-dropcap">K</span>iɗa Audio Ltd. takes

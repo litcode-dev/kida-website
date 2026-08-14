@@ -48,7 +48,7 @@ export function Footer() {
               rel="noopener noreferrer"
             >
               <Icon name="googleplay" size={14} />
-              Get it on Google Play
+              Google Play Store
             </a>
             <a href="#">Changelog</a>
             <a href="#">Roadmap</a>
