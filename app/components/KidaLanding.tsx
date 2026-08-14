@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Footer } from "./Footer";
 import { Icon } from "./Icon";
+import { KidaMark } from "./KidaMark";
 import { useDownloadModal } from "./DownloadModalProvider";
 
 const KEYS = [
@@ -530,9 +532,13 @@ export function KidaLanding() {
   return (
     <>
       <nav>
-        <a className="logo" href="#">
-          <span className="led" />
-          Ki<em>ɗ</em>a
+        {/* same wordmark the inner pages use (Navbar.tsx), but kept as an
+            in-page anchor so it does not reload the landing route */}
+        <a className="nav-logo" href="#">
+          <span className="mark">
+            <KidaMark size={26} />
+          </span>
+          <span>Kiɗa</span>
         </a>
         <div className="nav-links">
           <a href="#features">FEATURES</a>
@@ -986,13 +992,7 @@ export function KidaLanding() {
         </p>
       </div>
 
-      <footer>
-        <span>KIƊA © 2026 · THE LIVE PERFORMANCE COMPANION</span>
-        <span>
-          <a href="https://kida.litcode.com.ng">KIDA.LITCODE.COM.NG</a>
-        </span>
-        <span>MANUAL · SUPPORT · CHANGELOG</span>
-      </footer>
+      <Footer />
     </>
   );
 }

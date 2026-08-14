@@ -40,17 +40,6 @@ nav{
   padding:18px 36px;
   background:linear-gradient(to bottom,rgba(255,255,255,.94),rgba(255,255,255,0));
 }
-.logo{
-  font-family:var(--display);font-weight:900;font-size:21px;letter-spacing:.06em;
-  display:flex;align-items:center;gap:10px;color:var(--head);
-}
-.logo em{font-style:normal;color:var(--lemon)}
-.logo .led{
-  width:8px;height:8px;border-radius:50%;background:var(--lemon);
-  box-shadow:0 0 8px rgba(12,128,71,.45);
-  animation:blink 2.6s infinite;
-}
-@keyframes blink{0%,92%{opacity:1}96%{opacity:.2}100%{opacity:1}}
 .nav-links{display:flex;gap:28px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em}
 .nav-links a{color:var(--dim);transition:color .25s}
 .nav-links a:hover{color:var(--lemon)}
@@ -331,7 +320,7 @@ footer ::selection{background:var(--foot-accent);color:var(--foot-bg)}
 }
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none}
-  .logo .led,.scroll-hint i{animation:none!important}
+  .scroll-hint i{animation:none!important}
 }
 
 /* ---------- download modal ---------- */
