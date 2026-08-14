@@ -8,9 +8,10 @@ type IconName =
   | "link"
   | "stack"
   | "wave"
-  | "twitter"
-  | "discord"
-  | "github";
+  | "x"
+  | "tiktok"
+  | "instagram"
+  | "youtube";
 
 export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   const stroke = {
@@ -91,22 +92,36 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
           <path d="M3 12h2l2-7 3 14 3-10 3 7 2-4h3" />
         </svg>
       );
-    case "twitter":
+    case "x":
       return (
         <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
           <path d="M17.3 4h2.7l-5.9 6.7L21 20h-5.4l-4.2-5.5L6.6 20H3.9l6.3-7.2L3 4h5.5l3.8 5 4.9-5z" />
         </svg>
       );
-    case "discord":
+    case "tiktok":
       return (
         <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
-          <path d="M20 5.4A18 18 0 0015.5 4l-.2.3a13.6 13.6 0 014.3 2.1 14.5 14.5 0 00-15 0A13.6 13.6 0 018.7 4.3L8.5 4A18 18 0 004 5.4C1.5 9 1 12.6 1.3 16a18 18 0 005.4 2.7l1.1-1.5a11.5 11.5 0 01-1.8-.9l.4-.3a13 13 0 0011.2 0l.4.3-1.8.9 1.1 1.5A18 18 0 0022.7 16c.3-3.9-.4-7.5-2.7-10.6zM8.7 14c-1 0-1.9-1-1.9-2.1S7.6 9.8 8.7 9.8s1.9 1 1.9 2.1S9.7 14 8.7 14zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.9 2.1-1.9 2.1z" />
+          <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.6 2.6 0 0 1-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
         </svg>
       );
-    case "github":
+    case "instagram":
+      return (
+        <svg viewBox="0 0 24 24" {...stroke} strokeWidth={1.8}>
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle
+            cx="17.2"
+            cy="6.8"
+            r="1.15"
+            fill="currentColor"
+            stroke="none"
+          />
+        </svg>
+      );
+    case "youtube":
       return (
         <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size}>
-          <path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.4-1.1-1-1.4-1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.7-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0012 2z" />
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z" />
         </svg>
       );
   }

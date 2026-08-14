@@ -1,6 +1,19 @@
 import { Icon } from "./Icon";
 import { KidaMark } from "./KidaMark";
 
+const HANDLE = "kida.audio";
+
+const SOCIALS = [
+  { name: "X", icon: "x", href: `https://x.com/${HANDLE}` },
+  { name: "TikTok", icon: "tiktok", href: `https://www.tiktok.com/@${HANDLE}` },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    href: `https://www.instagram.com/${HANDLE}`,
+  },
+  { name: "YouTube", icon: "youtube", href: `https://www.youtube.com/@${HANDLE}` },
+] as const;
+
 export function Footer() {
   return (
     <footer id="download">
@@ -25,15 +38,17 @@ export function Footer() {
                 color: "var(--fg-3)",
               }}
             >
-              <a href="#" aria-label="Twitter">
-                <Icon name="twitter" size={16} />
-              </a>
-              <a href="#" aria-label="Discord">
-                <Icon name="discord" size={16} />
-              </a>
-              <a href="#" aria-label="GitHub">
-                <Icon name="github" size={16} />
-              </a>
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  aria-label={`Kiɗa on ${s.name} — @${HANDLE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon name={s.icon} size={16} />
+                </a>
+              ))}
             </div>
           </div>
           <div className="foot-col">
