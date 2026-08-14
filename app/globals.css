@@ -299,12 +299,24 @@ details p{padding:0 0 26px;color:var(--dim);max-width:680px}
 .cta-wrap h2{margin:0 auto}
 .cta-wrap .btn{margin-top:42px}
 .cta-note{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.14em}
+/* the footer inverts the page — a black block under the white site, so it
+   carries its own scale of tokens rather than the light ones above */
 footer{
-  border-top:1px solid var(--line);padding:34px 36px;
+  --foot-bg:#000000;
+  --foot-head:#f4f8ec;
+  --foot-text:#d5dfc6;
+  --foot-dim:#9aa88c;
+  --foot-line:rgba(255,255,255,.14);
+  --foot-accent:#2fc576;
+  --fg-3:var(--foot-dim);        /* consumed by the social row in Footer.tsx */
+  background:var(--foot-bg);
+  border-top:1px solid var(--foot-line);padding:34px 36px;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.08em;
+  font-family:var(--mono);font-size:12px;color:var(--foot-dim);letter-spacing:.08em;
 }
-footer a:hover{color:var(--lemon)}
+footer a:hover{color:var(--foot-accent)}
+footer :focus-visible{outline-color:var(--foot-accent)}
+footer ::selection{background:var(--foot-accent);color:var(--foot-bg)}
 
 .reveal{opacity:0;transform:translateY(34px)}
 /* RevealOnScroll (inner pages) toggles `.in`; KidaLanding drives its
@@ -430,20 +442,22 @@ footer#download{display:block;padding:80px 0 40px}
 .foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
 .foot-brand{max-width:290px}
 .foot-brand .nav-logo{margin-bottom:16px}
-.foot-brand p{color:var(--dim);font-size:14px;line-height:1.6}
+.foot-brand p{color:var(--foot-dim);font-size:14px;line-height:1.6}
+footer .nav-logo{color:var(--foot-head)}
+footer .nav-logo .mark{color:var(--foot-accent)}
 .foot-col h5{
   font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--text);margin-bottom:16px;
+  color:var(--foot-text);margin-bottom:16px;
 }
-.foot-col a{display:block;color:var(--dim);font-size:14px;padding:5px 0;transition:color .2s}
-.foot-col a:hover{color:var(--lemon)}
+.foot-col a{display:block;color:var(--foot-dim);font-size:14px;padding:5px 0;transition:color .2s}
+.foot-col a:hover{color:var(--foot-accent)}
 .foot-bot{
-  margin-top:56px;padding-top:24px;border-top:1px solid var(--line);
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--foot-line);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
-  font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.06em;
+  font-family:var(--mono);font-size:12px;color:var(--foot-dim);letter-spacing:.06em;
 }
 .foot-bot .status{display:flex;align-items:center}
-.foot-bot .status .dot{background:#17a05a;box-shadow:0 0 8px rgba(23,160,90,.45)}
+.foot-bot .status .dot{background:var(--foot-accent);box-shadow:0 0 8px rgba(47,197,118,.5)}
 
 /* ---------- newsletter block (NewsletterForm.tsx) ---------- */
 .newsletter-block{
