@@ -591,7 +591,7 @@ export function KidaLanding() {
               rel="noopener noreferrer"
             >
               <Icon name="googleplay" size={17} />
-              GET IT ON GOOGLE PLAY
+              GOOGLE PLAY
             </a>
             <a className="btn btn-ghost" href="#how">
               90-SEC DEMO ↓
@@ -872,7 +872,7 @@ export function KidaLanding() {
                 rel="noopener noreferrer"
               >
                 <Icon name="googleplay" size={17} />
-                GET IT ON GOOGLE PLAY
+                GOOGLE PLAY
               </a>
             </div>
           </div>
@@ -978,7 +978,7 @@ export function KidaLanding() {
             rel="noopener noreferrer"
           >
             <Icon name="googleplay" size={17} />
-            GET IT ON GOOGLE PLAY
+            GOOGLE PLAY
           </a>
         </div>
         <p className="cta-note reveal">
