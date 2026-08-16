@@ -80,6 +80,7 @@ export function Footer() {
             <h5>Legal</h5>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
+            <a href="/delete-account">Delete account</a>
             <a href="#">Marketplace terms</a>
             <a href="#">Press kit</a>
           </div>

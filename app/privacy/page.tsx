@@ -162,6 +162,10 @@ export default function PrivacyPage() {
                   days, except where retention is required by law (for
                   example, tax records for Marketplace earnings).
                 </p>
+                <p>
+                  The <a href="/delete-account">account deletion page</a> sets
+                  out the exact steps, what is erased, and what we keep.
+                </p>
               </Sec>
 
               <Sec id="rights" n="05" t="Your rights">
@@ -169,7 +173,9 @@ export default function PrivacyPage() {
                   Depending on where you live, you may have the right to
                   access, correct, export, or delete the personal data we
                   hold about you. To exercise any of these, email{" "}
-                  <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>.
+                  <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>. To
+                  delete your account outright, follow the steps on the{" "}
+                  <a href="/delete-account">account deletion page</a>.
                 </p>
                 <p>
                   <strong>EU / UK users:</strong> our lawful bases for
