@@ -173,7 +173,7 @@ export default function PrivacyPage() {
                   Depending on where you live, you may have the right to
                   access, correct, export, or delete the personal data we
                   hold about you. To exercise any of these, email{" "}
-                  <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>. To
+                  <a href="mailto:kida.audio@gmail.com">kida.audio@gmail.com</a>. To
                   delete your account outright, follow the steps on the{" "}
                   <a href="/delete-account">account deletion page</a>.
                 </p>
@@ -232,7 +232,7 @@ export default function PrivacyPage() {
                   Nigeria
                 </p>
                 <p>
-                  <a href="mailto:privacy@kida.audio">privacy@kida.audio</a>
+                  <a href="mailto:kida.audio@gmail.com">kida.audio@gmail.com</a>
                 </p>
               </Sec>
 
@@ -251,9 +251,9 @@ export default function PrivacyPage() {
                 <div className="legal-cta-actions">
                   <a
                     className="btn btn-primary"
-                    href="mailto:privacy@kida.audio"
+                    href="mailto:kida.audio@gmail.com"
                   >
-                    Email privacy@kida.audio
+                    Email kida.audio@gmail.com
                   </a>
                   <a className="btn btn-ghost" href="/#faq">
                     Read the FAQ

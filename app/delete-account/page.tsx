@@ -24,13 +24,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const SUPPORT_EMAIL = "kida.audio@gmail.com";
+
 /* ---------------------------------------------------------------------------
  * PLACEHOLDERS — these are legal commitments. Replace every value below with a
  * real one before this URL goes into the Play Console Data safety form. Each is
  * rendered on the page inside a <PH> marker so an unfilled value is impossible
  * to miss.
  * ------------------------------------------------------------------------- */
-const PH_SUPPORT_EMAIL = "PLACEHOLDER: deletion request email address";
 const PH_RESPONSE_TIME = "PLACEHOLDER: response time commitment";
 const PH_BACKUP_WINDOW = "PLACEHOLDER: backup purge window";
 const PH_PURCHASE_RETENTION = "PLACEHOLDER: purchase record retention period";
@@ -176,9 +177,10 @@ export default function DeleteAccountPage() {
                 </p>
                 <ol className="legal-steps">
                   <li>
-                    Send an email to <PH>{PH_SUPPORT_EMAIL}</PH>, ideally from
-                    the address on the Kiɗa account &mdash; that is how we
-                    confirm the request is yours.
+                    Send an email to{" "}
+                    <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>,
+                    ideally from the address on the Kiɗa account &mdash; that is
+                    how we confirm the request is yours.
                   </li>
                   <li>
                     Use the subject line{" "}
@@ -381,7 +383,7 @@ export default function DeleteAccountPage() {
                 </p>
                 <p>
                   Deletion requests and questions about this page:{" "}
-                  <PH>{PH_SUPPORT_EMAIL}</PH>
+                  <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
                 </p>
                 <p>
                   For how we handle your data more generally, see the{" "}
