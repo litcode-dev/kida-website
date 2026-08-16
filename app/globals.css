@@ -593,7 +593,7 @@ footer .nav-logo .mark{color:var(--foot-accent)}
 /* pull-out warning */
 .legal-note{
   margin:10px 0 22px;padding:18px 20px;border-radius:10px;
-  border:1px solid var(--line);border-left:3px solid var(--violet);background:var(--panel);
+  border:1px solid var(--line);background:var(--panel);
 }
 .legal-note-title{
   display:block;margin-bottom:8px;
