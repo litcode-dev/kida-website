@@ -601,12 +601,6 @@ footer .nav-logo .mark{color:var(--foot-accent)}
 }
 .legal-note p:last-child{margin-bottom:0}
 
-/* an unresolved value the site owner still has to supply */
-.legal-ph{
-  font-family:var(--mono);font-size:.86em;padding:1px 7px;border-radius:3px;
-  color:#7a4a00;background:#fdf3dd;border:1px dashed #d9a441;
-}
-
 /* closing CTA card */
 .legal-cta{
   margin-top:56px;padding:40px;border:1px solid var(--line);border-radius:10px;background:var(--panel);

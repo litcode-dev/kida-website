@@ -26,17 +26,13 @@ export const metadata: Metadata = {
 
 const SUPPORT_EMAIL = "kida.audio@gmail.com";
 
-/* ---------------------------------------------------------------------------
- * PLACEHOLDERS — these are legal commitments. Replace every value below with a
- * real one before this URL goes into the Play Console Data safety form. Each is
- * rendered on the page inside a <PH> marker so an unfilled value is impossible
- * to miss.
- * ------------------------------------------------------------------------- */
-const PH_RESPONSE_TIME = "PLACEHOLDER: response time commitment";
-const PH_BACKUP_WINDOW = "PLACEHOLDER: backup purge window";
-const PH_PURCHASE_RETENTION = "PLACEHOLDER: purchase record retention period";
-const PH_CRASH_RETENTION = "PLACEHOLDER: crash report retention period";
-const PH_LOG_RETENTION = "PLACEHOLDER: access log retention period";
+/* These are legal commitments, and the Play Console Data safety form points at
+ * this URL. Keep them in step with the retention section of /privacy. */
+const RESPONSE_TIME = "two working days";
+const BACKUP_WINDOW = "30 days";
+const PURCHASE_RETENTION = "6 years";
+const CRASH_RETENTION = "90 days";
+const LOG_RETENTION = "30 days";
 
 const APP_NAME = "Kiɗa – Music Performance";
 const DEVELOPER = "LitCode";
@@ -51,11 +47,6 @@ const sections: TocItem[] = [
   { id: "subscriptions", n: "06", t: "Subscriptions and purchases" },
   { id: "contact", n: "07", t: "Contact" },
 ];
-
-/** An unresolved value the site owner still has to supply. */
-function PH({ children }: { children: string }) {
-  return <span className="legal-ph">[{children}]</span>;
-}
 
 function Sec({
   id,
@@ -197,10 +188,9 @@ export default function DeleteAccountPage() {
                   </li>
                 </ol>
                 <p>
-                  We respond to deletion requests within{" "}
-                  <PH>{PH_RESPONSE_TIME}</PH>. Once we act on the request, the
-                  deletion is the same one described below &mdash; immediate and
-                  irreversible.
+                  We respond to deletion requests within {RESPONSE_TIME}. Once
+                  we act on the request, the deletion is the same one described
+                  below &mdash; immediate and irreversible.
                 </p>
               </Sec>
 
@@ -279,7 +269,7 @@ export default function DeleteAccountPage() {
                 </div>
                 <p>
                   Copies of this data that remain in routine encrypted backups
-                  are overwritten within <PH>{PH_BACKUP_WINDOW}</PH>. Backups
+                  are overwritten within {BACKUP_WINDOW}. Backups
                   are never used to restore a deleted account.
                 </p>
               </Sec>
@@ -316,7 +306,8 @@ export default function DeleteAccountPage() {
                         <td>RevenueCat and Google Play</td>
                         <td>Tax and accounting obligations</td>
                         <td>
-                          <PH>{PH_PURCHASE_RETENTION}</PH>
+                          {PURCHASE_RETENTION} from the date of the
+                          transaction
                         </td>
                       </tr>
                       <tr>
@@ -329,7 +320,8 @@ export default function DeleteAccountPage() {
                           app
                         </td>
                         <td>
-                          <PH>{PH_CRASH_RETENTION}</PH>
+                          {CRASH_RETENTION} from the date of the report, then
+                          deleted automatically
                         </td>
                       </tr>
                       <tr>
@@ -339,7 +331,7 @@ export default function DeleteAccountPage() {
                           Security, abuse prevention, and debugging
                         </td>
                         <td>
-                          <PH>{PH_LOG_RETENTION}</PH>
+                          {LOG_RETENTION}, then rotated out
                         </td>
                       </tr>
                     </tbody>
