@@ -3,6 +3,16 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
+import {
+  BACKUP_WINDOW,
+  COPY_WINDOW,
+  CRASH_RETENTION,
+  LOG_RETENTION,
+  PRIVACY_EMAIL,
+  PURCHASE_RETENTION,
+  RESPONSE_TIME,
+  SUPPORT_EMAIL,
+} from "../legal";
 
 const description =
   "How to delete your Kiɗa – Music Performance account — in the app or by email — what LitCode erases, what is kept afterwards, and what you lose for good.";
@@ -23,23 +33,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-const SUPPORT_EMAIL = "kida.audio@gmail.com";
-
-/* Rights requests (copies of data, complaints) route here. Move this to an
- * address on a domain we control as soon as there is one — a rights notice
- * that answers from a free mailbox is the detail reviewers and enterprise
- * buyers pick up on first. Ordinary support stays on SUPPORT_EMAIL. */
-const PRIVACY_EMAIL = SUPPORT_EMAIL;
-
-/* These are legal commitments, and the Play Console Data safety form points at
- * this URL. Keep them in step with the retention section of /privacy. */
-const RESPONSE_TIME = "two working days";
-const BACKUP_WINDOW = "30 days";
-const COPY_WINDOW = "30 days";
-const PURCHASE_RETENTION = "6 years";
-const CRASH_RETENTION = "90 days";
-const LOG_RETENTION = "30 days";
 
 const APP_NAME = "Kiɗa – Music Performance";
 const DEVELOPER = "LitCode";

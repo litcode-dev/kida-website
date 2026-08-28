@@ -3,6 +3,16 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
+import {
+  BACKUP_WINDOW,
+  COPY_WINDOW,
+  CRASH_RETENTION,
+  LOG_RETENTION,
+  PRIVACY_EMAIL,
+  PURCHASE_RETENTION,
+  RESPONSE_TIME,
+  SUPPORT_EMAIL,
+} from "../legal";
 
 const description =
   "How Kiɗa collects, uses, and protects the information you give us when you use our apps and the Marketplace.";
@@ -23,8 +33,12 @@ export const metadata: Metadata = {
   },
 };
 
-// const lastUpdated = "May 19, 2026";
-// const effective = "2026-05-19";
+const LAST_UPDATED = "August 28, 2026";
+
+/* The entity named here has to be the one on /delete-account, which currently
+ * names LitCode as the publisher and controller. Settle which of the two is
+ * the registered controller and change both. */
+const LEGAL_ENTITY = "Kiɗa Audio Ltd.";
 
 const sections: TocItem[] = [
   { id: "info", n: "01", t: "Information we collect" },
@@ -36,7 +50,7 @@ const sections: TocItem[] = [
   { id: "security", n: "07", t: "Security" },
   { id: "intl", n: "08", t: "International transfers" },
   { id: "changes", n: "09", t: "Changes to this policy" },
-  { id: "contact", n: "10", t: "Contact" },
+  { id: "contact", n: "10", t: "Contact and complaints" },
 ];
 
 function Sec({
@@ -112,6 +126,13 @@ export default function PrivacyPage() {
                   your sessions unless you explicitly publish it.
                 </p>
                 <p>
+                  The usage events are held for us by an analytics provider
+                  and linked to your account for as long as the account
+                  exists. Deleting your account deletes that profile &mdash;
+                  see the{" "}
+                  <a href="/delete-account">account deletion page</a>.
+                </p>
+                <p>
                   <strong>Information from third parties.</strong> If you
                   sign in with Apple or Google, we receive a unique
                   identifier and the basic profile fields you authorize. We
@@ -157,14 +178,40 @@ export default function PrivacyPage() {
               <Sec id="retention" n="04" t="Data retention">
                 <p>
                   We keep your account data as long as your account is
-                  active. You can delete your account at any time from
-                  in-app settings — personal data is removed within 30
-                  days, except where retention is required by law (for
-                  example, tax records for Marketplace earnings).
+                  active. You can delete it at any time, from inside the app
+                  or by email, and the deletion is{" "}
+                  <strong>immediate and irreversible</strong> &mdash; the
+                  account record and everything held against it are erased
+                  the moment the deletion is confirmed, not after a waiting
+                  period. Copies that remain in routine encrypted backups are
+                  overwritten within {BACKUP_WINDOW}, and backups are never
+                  used to restore a deleted account.
                 </p>
+                <p>Four things outlive the account:</p>
+                <ul className="legal-list">
+                  <li>
+                    <strong>Purchase and subscription records.</strong>{" "}
+                    {PURCHASE_RETENTION} from the date of the transaction,
+                    for tax and accounting.
+                  </li>
+                  <li>
+                    <strong>Crash reports and performance diagnostics.</strong>{" "}
+                    {CRASH_RETENTION}, then deleted automatically.
+                  </li>
+                  <li>
+                    <strong>Server access logs.</strong> {LOG_RETENTION}, then
+                    rotated out.
+                  </li>
+                  <li>
+                    <strong>Aggregate usage counts.</strong> Kept
+                    indefinitely with your identifiers removed, so they can no
+                    longer be traced back to you.
+                  </li>
+                </ul>
                 <p>
                   The <a href="/delete-account">account deletion page</a> sets
-                  out the exact steps, what is erased, and what we keep.
+                  out the exact steps, what is erased, what we keep, and what
+                  you lose for good.
                 </p>
               </Sec>
 
@@ -173,9 +220,27 @@ export default function PrivacyPage() {
                   Depending on where you live, you may have the right to
                   access, correct, export, or delete the personal data we
                   hold about you. To exercise any of these, email{" "}
-                  <a href="mailto:kida.audio@gmail.com">kida.audio@gmail.com</a>. To
+                  <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>. To
                   delete your account outright, follow the steps on the{" "}
                   <a href="/delete-account">account deletion page</a>.
+                </p>
+                <p>
+                  <strong>A copy of your data.</strong>{" "}
+                  Email us with the
+                  subject &ldquo;Copy of my Kiɗa data&rdquo; and we will send
+                  you a readable copy of the personal data we hold within{" "}
+                  {COPY_WINDOW}, free of charge. Do this before you delete
+                  your account: deletion is irreversible and there is nothing
+                  left to copy afterwards.
+                </p>
+                <p>
+                  <strong>How we check a request.</strong>{" "}
+                  We only act on a
+                  request sent from the email address on the account. If you
+                  have lost access to that address, we will ask for something
+                  else that shows the account is yours &mdash; a store order
+                  number, for example &mdash; before we act. We will never ask
+                  you for your password.
                 </p>
                 <p>
                   <strong>EU / UK users:</strong> our lawful bases for
@@ -184,7 +249,8 @@ export default function PrivacyPage() {
                   your consent where required.
                 </p>
                 <p>
-                  <strong>California users:</strong> we do not sell or
+                  <strong>California users:</strong>{" "}
+                  we do not sell or
                   &ldquo;share&rdquo; personal information as those terms
                   are defined under the CCPA / CPRA.
                 </p>
@@ -225,15 +291,40 @@ export default function PrivacyPage() {
                 </p>
               </Sec>
 
-              <Sec id="contact" n="10" t="Contact">
+              <Sec id="contact" n="10" t="Contact and complaints">
                 <p>
-                  Kiɗa Audio Ltd.
+                  {LEGAL_ENTITY}
                   <br />
                   Nigeria
                 </p>
                 <p>
-                  <a href="mailto:kida.audio@gmail.com">kida.audio@gmail.com</a>
+                  {LEGAL_ENTITY} decides how Kiɗa handles your personal data
+                  and is the data controller for it.
                 </p>
+                <p>
+                  Questions about this policy, or about your data generally:{" "}
+                  <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>
+                  <br />
+                  Deletion requests and ordinary support:{" "}
+                  <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
+                </p>
+                <p>
+                  <strong>If you are not happy with how we handled this,</strong>{" "}
+                  tell us first &mdash; most problems are a misunderstanding we
+                  can fix the same week. If we cannot resolve it, you can
+                  complain to the Nigeria Data Protection Commission at{" "}
+                  <a
+                    href="https://ndpc.gov.ng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    ndpc.gov.ng
+                  </a>
+                  . If you are in the United Kingdom or the European Union, you
+                  can complain to your own national data protection authority
+                  instead.
+                </p>
+                <p>Last updated {LAST_UPDATED}.</p>
               </Sec>
 
               <div className="legal-cta reveal">
@@ -245,15 +336,15 @@ export default function PrivacyPage() {
                   <h3>Talk to a human about your data.</h3>
                   <p>
                     Our privacy team replies to every message — usually
-                    within two working days.
+                    within {RESPONSE_TIME}.
                   </p>
                 </div>
                 <div className="legal-cta-actions">
                   <a
                     className="btn btn-primary"
-                    href="mailto:kida.audio@gmail.com"
+                    href={`mailto:${PRIVACY_EMAIL}`}
                   >
-                    Email kida.audio@gmail.com
+                    Email {PRIVACY_EMAIL}
                   </a>
                   <a className="btn btn-ghost" href="/#faq">
                     Read the FAQ
