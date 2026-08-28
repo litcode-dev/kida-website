@@ -5,6 +5,7 @@ import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
 import {
   BACKUP_WINDOW,
+  LEGAL_ENTITY,
   COPY_WINDOW,
   CRASH_RETENTION,
   LOG_RETENTION,
@@ -34,11 +35,6 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "August 28, 2026";
-
-/* The entity named here has to be the one on /delete-account, which currently
- * names LitCode as the publisher and controller. Settle which of the two is
- * the registered controller and change both. */
-const LEGAL_ENTITY = "Kiɗa Audio Ltd.";
 
 const sections: TocItem[] = [
   { id: "info", n: "01", t: "Information we collect" },
@@ -92,11 +88,12 @@ export default function PrivacyPage() {
                 Privacy Policy
               </h1>
               <p className="legal-lead">
-                <span className="legal-dropcap">K</span>iɗa Audio Ltd. takes
-                care of your data the way a good engineer takes care of a
-                live mix — minimum gain, maximum clarity, nothing routed
-                somewhere it doesn&rsquo;t belong. This page explains what
-                we collect, why, and what you can ask us to do about it.
+                <span className="legal-dropcap">K</span>iɗa is made by{" "}
+                {LEGAL_ENTITY}, and we take care of your data the way a good
+                engineer takes care of a live mix — minimum gain, maximum
+                clarity, nothing routed somewhere it doesn&rsquo;t belong.
+                This page explains what we collect, why, and what you can ask
+                us to do about it.
               </p>
             </div>
           </div>

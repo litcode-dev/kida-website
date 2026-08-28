@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { DownloadModalProvider } from "./components/DownloadModalProvider";
+import { LEGAL_ENTITY } from "./legal";
 
 const SITE_URL = "https://kida.litcode.com.ng";
 const SITE_NAME = "Kiɗa";
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
     "Afrobeat",
     "live looping",
   ],
-  authors: [{ name: "Kiɗa Audio Ltd." }],
-  creator: "Kiɗa Audio Ltd.",
-  publisher: "Kiɗa Audio Ltd.",
+  authors: [{ name: LEGAL_ENTITY }],
+  creator: LEGAL_ENTITY,
+  publisher: LEGAL_ENTITY,
   category: "music",
   alternates: { canonical: "/" },
   formatDetection: { telephone: false, email: false, address: false },
@@ -75,7 +76,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: "Kiɗa Audio Ltd.",
+      name: LEGAL_ENTITY,
       url: SITE_URL,
       logo: `${SITE_URL}/opengraph-image`,
       address: {

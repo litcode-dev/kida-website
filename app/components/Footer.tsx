@@ -1,5 +1,6 @@
 import { Icon } from "./Icon";
 import { KidaMark } from "./KidaMark";
+import { LEGAL_ENTITY } from "../legal";
 
 const HANDLE = "kida.audio";
 
@@ -87,7 +88,7 @@ export function Footer() {
         </div>
 
         <div className="foot-bot">
-          <span>© 2026 Kiɗa Audio Ltd.</span>
+          <span>© 2026 {LEGAL_ENTITY}</span>
           <span className="status">
             <span className="dot" />
             All systems operational

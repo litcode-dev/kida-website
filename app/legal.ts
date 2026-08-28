@@ -3,6 +3,11 @@
  * — so they live here and both pages read from them rather than each carrying
  * its own copy that can drift. */
 
+/* The registered company behind Kiɗa, and the data controller for it. It is
+ * also the developer name on the store listings. Still needs a registered
+ * address before the legal pages are complete. */
+export const LEGAL_ENTITY = "LitCode";
+
 export const SUPPORT_EMAIL = "kida.audio@gmail.com";
 
 /* Rights requests (copies of data, complaints) route here. Move this to an

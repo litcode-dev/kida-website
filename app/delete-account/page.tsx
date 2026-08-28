@@ -7,6 +7,7 @@ import {
   BACKUP_WINDOW,
   COPY_WINDOW,
   CRASH_RETENTION,
+  LEGAL_ENTITY,
   LOG_RETENTION,
   PRIVACY_EMAIL,
   PURCHASE_RETENTION,
@@ -35,14 +36,11 @@ export const metadata: Metadata = {
 };
 
 const APP_NAME = "Kiɗa – Music Performance";
-const DEVELOPER = "LitCode";
+const DEVELOPER = LEGAL_ENTITY;
 const PACKAGE_ID = "com.litecode.kida";
-/* TODO: replace with the registered company name and address once the
- * registration details are confirmed — the NDPA and the GDPR both expect the
- * controller to be identifiable from the notice. Note that /privacy, /terms
- * and the footer name "Kiɗa Audio Ltd." as the entity while this page names
- * LitCode as the publisher; one of the two has to give. */
-const CONTROLLER = "LitCode";
+/* TODO: add the registered address alongside the name — the NDPA and the
+ * GDPR both expect the controller to be identifiable from the notice. */
+const CONTROLLER = LEGAL_ENTITY;
 const LAST_UPDATED = "August 28, 2026";
 
 const sections: TocItem[] = [

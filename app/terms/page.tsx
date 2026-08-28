@@ -4,9 +4,10 @@ import { Navbar } from "../components/Navbar";
 import { NewsletterForm } from "../components/NewsletterForm";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { TableOfContents, type TocItem } from "../components/TableOfContents";
+import { LEGAL_ENTITY } from "../legal";
 
 const description =
-  "The agreement between you and Kiɗa Audio Ltd. when you use our apps, the Marketplace, and the Pro subscription.";
+  `The agreement between you and ${LEGAL_ENTITY} when you use our apps, the Marketplace, and the Pro subscription.`;
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -81,7 +82,7 @@ export default function TermsPage() {
               <p className="legal-lead">
                 <span className="legal-dropcap">B</span>y using Kiɗa, you
                 agree to these terms — the rules of the room between you
-                and Kiɗa Audio Ltd. We&rsquo;ve kept them short and
+                and {LEGAL_ENTITY}. We&rsquo;ve kept them short and
                 concrete: what you can do with the app, what we promise in
                 return, and what happens if something goes sideways.
               </p>
@@ -218,7 +219,8 @@ export default function TermsPage() {
                 <p>
                   Kiɗa, the wave mark, the app code, the design system,
                   and every built-in drone and sample we publish are owned
-                  by Kiɗa Audio Ltd. or our licensors. The license we
+                  by {LEGAL_ENTITY}{" "}
+                  or our licensors. The license we
                   give you in Section&nbsp;03 doesn&rsquo;t transfer any
                   of that ownership.
                 </p>
@@ -262,7 +264,8 @@ export default function TermsPage() {
                   warranties.
                 </p>
                 <p>
-                  <strong>Liability cap.</strong> If something goes
+                  <strong>Liability cap.</strong>{" "}
+                  If something goes
                   wrong, our total liability to you for any claim related
                   to Kiɗa is capped at the greater of (a) the amount you
                   paid us in the 12 months before the claim, or (b)
@@ -298,7 +301,7 @@ export default function TermsPage() {
 
               <Sec id="contact" n="13" t="Contact">
                 <p>
-                  Kiɗa Audio Ltd.
+                  {LEGAL_ENTITY}
                   <br />
                   Nigeria
                 </p>
