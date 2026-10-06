@@ -104,9 +104,8 @@ export default function ContactPage() {
               </span>
               <h3>Write to us</h3>
               <p>
-                Pick a topic and we will route it to the right person. The
-                form opens your email app with the message ready to send, so
-                you get our reply in your own inbox.
+                Tell us what you need and we will route it to the right
+                person. We reply to the email address you give us.
               </p>
               <div className="contact-socials">
                 <span>Or find us at @{HANDLE}</span>
@@ -125,7 +124,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <ContactForm to={SUPPORT_EMAIL} />
+            <ContactForm fallbackEmail={SUPPORT_EMAIL} />
           </section>
         </div>
       </main>
