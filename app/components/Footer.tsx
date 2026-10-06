@@ -2,9 +2,9 @@ import { Icon } from "./Icon";
 import { KidaMark } from "./KidaMark";
 import { LEGAL_ENTITY } from "../legal";
 
-const HANDLE = "kida.audio";
+export const HANDLE = "kida.audio";
 
-const SOCIALS = [
+export const SOCIALS = [
   { name: "X", icon: "x", href: `https://x.com/${HANDLE}` },
   { name: "TikTok", icon: "tiktok", href: `https://www.tiktok.com/@${HANDLE}` },
   {
@@ -75,13 +75,14 @@ export function Footer() {
             <a href="#">Ableton setup</a>
             <a href="#">MIDI guide</a>
             <a href="#">Community</a>
-            <a href="#">Support</a>
+            <a href="/contact">Support</a>
           </div>
           <div className="foot-col">
             <h5>Legal</h5>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
             <a href="/delete-account">Delete account</a>
+            <a href="/contact">Contact</a>
             <a href="#">Marketplace terms</a>
             <a href="#">Press kit</a>
           </div>

@@ -624,3 +624,42 @@ footer .nav-logo .mark{color:var(--foot-accent)}
   .legal-table th,.legal-table td{padding:11px 14px}
   .legal-table caption{padding:14px 14px 2px}
 }
+
+/* ==========================================================================
+   Contact page — reuses the legal hero, then channel cards and a form panel
+   ========================================================================== */
+.contact-wrap{padding-top:64px;padding-bottom:110px}
+.contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.contact-card{
+  display:flex;flex-direction:column;gap:10px;padding:28px;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);color:var(--dim);transition:border-color .2s,transform .2s;
+}
+.contact-card:hover{border-color:var(--lemon);transform:translateY(-2px)}
+.contact-card h2{font-family:var(--display);font-weight:500;font-size:22px;color:var(--head);letter-spacing:.01em}
+.contact-card p{font-size:15px;line-height:1.6;flex:1}
+.contact-card-cta{
+  display:inline-flex;align-items:center;gap:8px;margin-top:6px;
+  font-family:var(--mono);font-size:12px;color:var(--lemon);word-break:break-all;
+}
+.contact-panel{
+  margin-top:56px;padding:40px;border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;
+}
+.contact-panel .legal-cta-copy{flex:1 1 260px}
+.contact-socials{margin-top:24px;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.contact-socials div{display:flex;gap:14px;margin-top:10px;color:var(--text)}
+.contact-socials a:hover{color:var(--lemon)}
+.contact-form{flex:2 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.contact-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.contact-field{display:flex;flex-direction:column;gap:8px}
+.contact-field>span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.contact-field .newsletter-input{width:100%;font:inherit;font-size:15px;color:var(--text)}
+.contact-field textarea{resize:vertical;min-height:140px}
+.contact-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.contact-hint{font-size:14px;color:var(--dim)}
+.contact-hint a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+.contact-hint a:hover{text-decoration-color:var(--lemon)}
+@media(max-width:760px){
+  .contact-wrap{padding-top:40px;padding-bottom:80px}
+  .contact-panel{padding:28px 24px;gap:28px}
+}
