@@ -665,3 +665,23 @@ footer .nav-logo .mark{color:var(--foot-accent)}
   .contact-wrap{padding-top:40px;padding-bottom:80px}
   .contact-panel{padding:28px 24px;gap:28px}
 }
+
+/* ==========================================================================
+   Products page — reuses the legal hero, then one card per app
+   ========================================================================== */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.product-card{
+  display:flex;flex-direction:column;gap:10px;padding:32px;border:1px solid var(--line);border-radius:10px;
+  background:var(--panel);color:var(--dim);transition:border-color .2s,transform .2s;
+}
+.product-card:hover{border-color:var(--lemon);transform:translateY(-2px)}
+.product-card h2{font-family:var(--display);font-weight:500;font-size:28px;color:var(--head);letter-spacing:.01em}
+.product-card p{font-size:15px;line-height:1.6;flex:1}
+.product-mark{
+  display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;margin-bottom:8px;
+  border-radius:14px;background:var(--lemon-soft);color:var(--lemon);
+}
+.product-letter{font-family:var(--display);font-weight:900;font-size:28px;line-height:1}
+.product-store{align-self:flex-start;margin-top:10px;white-space:nowrap}
+.product-store.is-soon{opacity:.6;cursor:default}
+.product-store.is-soon:hover{transform:none;border-color:var(--line-strong);color:var(--text)}

@@ -16,6 +16,7 @@ export function Navbar() {
           <a href="#marketplace">Library</a>
           <a href="#pricing">Pricing</a>
           <a href="#faq">FAQ</a>
+          <a href="/products">Products</a>
         </div>
         <div className="nav-cta">
           {/* <a className="sign-in" href="#">
