@@ -54,6 +54,7 @@ export function Footer() {
           </div>
           <div className="foot-col">
             <h5>Product</h5>
+            <a href="/products">Products</a>
             <a href="#features">Features</a>
             <a href="#marketplace">Library</a>
             <a href="#pricing">Pricing</a>
