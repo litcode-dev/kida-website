@@ -7,7 +7,7 @@ import { RevealOnScroll } from "../components/RevealOnScroll";
 import { LEGAL_ENTITY } from "../legal";
 
 const description =
-  "The apps made by LitCode — Kiɗa, the live performance companion for working musicians, and Toniq.";
+  "The apps made by LitCode — Kiɗa, the live performance companion for working musicians, and Toniq, a music theory companion for players and producers.";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -33,6 +33,8 @@ type Product = {
   mark: React.ReactNode;
   /* Google Play listing; null until the app is published. */
   playStoreUrl: string | null;
+  /* Shown in place of the store button while there is no listing. */
+  comingSoon?: string;
 };
 
 const PRODUCTS: Product[] = [
@@ -46,10 +48,11 @@ const PRODUCTS: Product[] = [
   },
   {
     name: "Toniq",
-    tagline: `Another app from ${LEGAL_ENTITY}`,
-    body: "Toniq is the newest app in the LitCode family.",
+    tagline: "Music theory companion",
+    body: "Toniq is a music theory companion for players and producers. Play from a MIDI keyboard, a MIDI file, or the on-screen piano, and Toniq instantly names the chord, finds the key you're in, and shows each chord's role as a Roman numeral. It suggests the chords likely to come next, shows the notes on a staff and on a guitar neck, and spells everything correctly for the key: Bb7 in flat keys, not A#7. Use it as a standalone app with your own instruments, or as a VST3/AU plugin inside your DAW.",
     mark: <span className="product-letter">T</span>,
     playStoreUrl: null,
+    comingSoon: "Coming soon for Mac & Windows",
   },
 ];
 
@@ -70,7 +73,7 @@ export default function ProductsPage() {
             <div className="legal-hero-inner reveal">
               <h1 className="legal-title">Products</h1>
               <p className="legal-lead">
-                Apps made by {LEGAL_ENTITY}. Get them on Google Play.
+                Apps for musicians, made by {LEGAL_ENTITY}.
               </p>
             </div>
           </div>
@@ -97,9 +100,8 @@ export default function ProductsPage() {
                     Get it on Google Play
                   </a>
                 ) : (
-                  <span className="btn btn-ghost btn-icon product-store is-soon">
-                    <Icon name="googleplay" size={18} />
-                    Coming soon to Google Play
+                  <span className="btn btn-ghost product-store is-soon">
+                    {p.comingSoon ?? "Coming soon"}
                   </span>
                 )}
               </article>
