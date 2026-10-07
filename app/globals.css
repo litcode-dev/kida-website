@@ -370,6 +370,13 @@ footer ::selection{background:var(--foot-accent);color:var(--foot-bg)}
   transition:color .2s;
 }
 .dl-switch:hover{color:var(--lemon)}
+.dl-os{display:flex;gap:6px;margin:-6px 0 16px;padding:4px;border:1px solid var(--line);border-radius:6px}
+.dl-os-option{
+  flex:1;padding:9px 6px;border-radius:4px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--dim);transition:color .2s,background .2s;
+}
+.dl-os-option:hover{color:var(--lemon)}
+.dl-os-option[aria-checked="true"]{background:var(--lemon-soft);color:var(--lemon-dim);font-weight:500}
 .dl-success{display:flex;flex-direction:column;align-items:center;gap:6px}
 .dl-check{
   width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
@@ -380,6 +387,7 @@ footer ::selection{background:var(--foot-accent);color:var(--foot-bg)}
   margin-right:8px;border:2px solid rgba(255,255,255,.4);border-top-color:var(--on-accent);
   animation:dl-spin .7s linear infinite;
 }
+.dl-spinner-accent{margin:0;width:20px;height:20px;border-color:var(--lemon-soft);border-top-color:var(--lemon);border-width:2.5px}
 @keyframes dl-fade{from{opacity:0}to{opacity:1}}
 @keyframes dl-pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes dl-spin{to{transform:rotate(360deg)}}
@@ -683,5 +691,3 @@ footer .nav-logo .mark{color:var(--foot-accent)}
 }
 .product-letter{font-family:var(--display);font-weight:900;font-size:28px;line-height:1}
 .product-store{align-self:flex-start;margin-top:10px;white-space:nowrap}
-.product-store.is-soon{opacity:.6;cursor:default}
-.product-store.is-soon:hover{transform:none;border-color:var(--line-strong);color:var(--text)}
