@@ -1,12 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
 import { useDownloadModal } from "./DownloadModalProvider";
 import type { Platform } from "./DownloadModal";
 import { Icon } from "./Icon";
 
-type PublicApp = {
+export type PublicApp = {
   name: string;
+  description?: string | null;
   available_os?: string[];
   paid_os?: string[];
   links?: { android?: string; ios?: string };
@@ -31,17 +31,23 @@ const DESKTOP_ICONS = {
    hour, so a page left open longer re-fetches before following one. */
 const LINK_TTL_MS = 50 * 60 * 1000;
 
-function isStale(fetchedAt: number) {
+export function isStale(fetchedAt: number) {
   return Date.now() - fetchedAt >= LINK_TTL_MS;
 }
 
-async function fetchApp(name: string): Promise<PublicApp | null> {
+export async function fetchApps(): Promise<PublicApp[] | null> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
   const res = await fetch(`${base}/api/v1/app/apps`, { cache: "no-store" });
   if (!res.ok) return null;
   const body: { data?: PublicApp[] } = await res.json();
-  const wanted = name.toLowerCase();
-  return body.data?.find((a) => a.name.toLowerCase() === wanted) ?? null;
+  return body.data ?? null;
+}
+
+/* Case- and accent-insensitive, so "Kiɗa" and "kida" match. */
+export function sameApp(a: string, b: string) {
+  const norm = (n: string) =>
+    n.toLowerCase().replace(/ɗ/g, "d").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  return norm(a) === norm(b);
 }
 
 function formatPrice(price: string | null, currency: string | null) {
@@ -68,44 +74,28 @@ function isHost(url: string, host: string) {
 
 /* Store and download buttons for an app published through the backend:
    Android and iOS links straight from GET /app/apps, desktop through the
-   email (and, when paid, checkout) modal. */
-export function AppDownloads({ app }: { app: string }) {
+   email (and, when paid, checkout) modal. `info` is null until the list
+   loads; `freshInfo` re-fetches when the links may have expired. */
+export function AppDownloads({
+  app,
+  info,
+  stale,
+  freshInfo,
+}: {
+  app: string;
+  info: PublicApp | null;
+  stale: () => boolean;
+  freshInfo: () => Promise<PublicApp | null>;
+}) {
   const { open } = useDownloadModal();
-  const [info, setInfo] = useState<PublicApp | null>(null);
-  const fetchedAt = useRef(0);
-
-  const load = useCallback(async () => {
-    try {
-      const found = await fetchApp(app);
-      fetchedAt.current = Date.now();
-      setInfo(found);
-      return found;
-    } catch {
-      return null;
-    }
-  }, [app]);
-
-  useEffect(() => {
-    let live = true;
-    fetchApp(app)
-      .then((found) => {
-        if (!live) return;
-        fetchedAt.current = Date.now();
-        setInfo(found);
-      })
-      .catch(() => {});
-    return () => {
-      live = false;
-    };
-  }, [app]);
 
   async function followMobile(
     e: React.MouseEvent<HTMLAnchorElement>,
     os: "android" | "ios",
   ) {
-    if (!isStale(fetchedAt.current)) return;
+    if (!stale()) return;
     e.preventDefault();
-    const fresh = (await load())?.links?.[os];
+    const fresh = (await freshInfo())?.links?.[os];
     /* No longer a direct click, so a new tab would be blocked. */
     if (fresh) window.location.assign(fresh);
   }

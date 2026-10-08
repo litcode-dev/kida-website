@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { AppDownloads } from "../components/AppDownloads";
 import { Footer } from "../components/Footer";
-import { Icon } from "../components/Icon";
 import { KidaMark } from "../components/KidaMark";
 import { Navbar } from "../components/Navbar";
+import { ProductGrid, type Product } from "../components/ProductGrid";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { LEGAL_ENTITY } from "../legal";
 
@@ -25,17 +24,6 @@ export const metadata: Metadata = {
     description,
   },
   robots: { index: true, follow: true },
-};
-
-type Product = {
-  name: string;
-  tagline: string;
-  body: string;
-  mark: React.ReactNode;
-  /* Google Play listing, for mobile apps. */
-  playStoreUrl?: string;
-  /* Backend app name: store links and desktop downloads come from the API. */
-  apiApp?: string;
 };
 
 const PRODUCTS: Product[] = [
@@ -81,32 +69,7 @@ export default function ProductsPage() {
         </header>
 
         <div className="wrap contact-wrap">
-          <div className="product-grid">
-            {PRODUCTS.map((p) => (
-              <article key={p.name} className="product-card reveal">
-                <span className="product-mark">{p.mark}</span>
-                <span className="legal-sec-num">{p.tagline}</span>
-                <h2>{p.name}</h2>
-                <p>{p.body}</p>
-                {p.playStoreUrl ? (
-                  <div className="platform-row">
-                    <a
-                      className="platform-btn"
-                      href={p.playStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Get ${p.name} on Google Play`}
-                      title={`Get ${p.name} on Google Play`}
-                    >
-                      <Icon name="googleplay" size={18} />
-                    </a>
-                  </div>
-                ) : p.apiApp ? (
-                  <AppDownloads app={p.apiApp} />
-                ) : null}
-              </article>
-            ))}
-          </div>
+          <ProductGrid products={PRODUCTS} hide={["Kida"]} />
         </div>
       </main>
       <Footer />
