@@ -89,16 +89,18 @@ export default function ProductsPage() {
                 <h2>{p.name}</h2>
                 <p>{p.body}</p>
                 {p.playStoreUrl ? (
-                  <a
-                    className="btn btn-ghost btn-icon product-store"
-                    href={p.playStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Get ${p.name} on Google Play`}
-                  >
-                    <Icon name="googleplay" size={18} />
-                    Get it on Google Play
-                  </a>
+                  <div className="platform-row">
+                    <a
+                      className="platform-btn"
+                      href={p.playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Get ${p.name} on Google Play`}
+                      title={`Get ${p.name} on Google Play`}
+                    >
+                      <Icon name="googleplay" size={18} />
+                    </a>
+                  </div>
                 ) : p.apiApp ? (
                   <AppDownloads app={p.apiApp} />
                 ) : null}

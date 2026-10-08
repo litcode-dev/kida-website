@@ -21,10 +21,19 @@ const DESKTOP_LABELS: Record<Platform, string> = {
   windows: "Windows",
   linux: "Linux",
 };
+const DESKTOP_ICONS = {
+  macos: "apple",
+  windows: "windows",
+  linux: "linux",
+} as const satisfies Record<Platform, string>;
 
 /* Private builds (an APK on R2) come back as links that expire after an
    hour, so a page left open longer re-fetches before following one. */
 const LINK_TTL_MS = 50 * 60 * 1000;
+
+function isStale(fetchedAt: number) {
+  return Date.now() - fetchedAt >= LINK_TTL_MS;
+}
 
 async function fetchApp(name: string): Promise<PublicApp | null> {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
@@ -33,24 +42,6 @@ async function fetchApp(name: string): Promise<PublicApp | null> {
   const body: { data?: PublicApp[] } = await res.json();
   const wanted = name.toLowerCase();
   return body.data?.find((a) => a.name.toLowerCase() === wanted) ?? null;
-}
-
-/* Best guess at the visitor's desktop OS; they can switch in the modal. */
-function guessPlatform(options: Platform[]): Platform {
-  const ua = navigator.userAgent;
-  const guess: Platform = /Mac/i.test(ua)
-    ? "macos"
-    : /Linux/i.test(ua) && !/Android/i.test(ua)
-      ? "linux"
-      : "windows";
-  return options.includes(guess) ? guess : options[0];
-}
-
-function joinLabels(platforms: Platform[]) {
-  const names = platforms.map((p) => DESKTOP_LABELS[p]);
-  return names.length > 1
-    ? `${names.slice(0, -1).join(", ")} & ${names[names.length - 1]}`
-    : names[0];
 }
 
 function formatPrice(price: string | null, currency: string | null) {
@@ -112,7 +103,7 @@ export function AppDownloads({ app }: { app: string }) {
     e: React.MouseEvent<HTMLAnchorElement>,
     os: "android" | "ios",
   ) {
-    if (Date.now() - fetchedAt.current < LINK_TTL_MS) return;
+    if (!isStale(fetchedAt.current)) return;
     e.preventDefault();
     const fresh = (await load())?.links?.[os];
     /* No longer a direct click, so a new tab would be blocked. */
@@ -131,51 +122,65 @@ export function AppDownloads({ app }: { app: string }) {
   const android = info?.links?.android;
   const ios = info?.links?.ios;
 
+  const mobile = (
+    [
+      ["android", android],
+      ["ios", ios],
+    ] as const
+  ).filter((m): m is readonly ["android" | "ios", string] => Boolean(m[1]));
+
   return (
-    <div className="product-actions">
-      {desktop.length > 0 && (
-        <button
-          type="button"
-          className="btn btn-solid product-store"
-          onClick={() => open(guessPlatform(desktop), app, desktop)}
-        >
-          {`Get ${app} for ${joinLabels(desktop)}${price ? ` · ${price}` : ""}`}
-        </button>
-      )}
-      {android && (
-        <a
-          className="btn btn-ghost btn-icon product-store"
-          href={android}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => followMobile(e, "android")}
-        >
-          {isHost(android, "play.google.com") ? (
-            <>
-              <Icon name="googleplay" size={18} />
-              Get it on Google Play
-            </>
-          ) : (
-            <>
-              <Icon name="android" size={18} />
-              Download for Android
-            </>
-          )}
-        </a>
-      )}
-      {ios && (
-        <a
-          className="btn btn-ghost btn-icon product-store"
-          href={ios}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={(e) => followMobile(e, "ios")}
-        >
-          <Icon name="apple" size={18} />
-          {isHost(ios, "testflight.apple.com")
-            ? "Join the TestFlight beta"
-            : "Download on the App Store"}
-        </a>
+    <div className="platform-row">
+      {mobile.map(([os, href]) => {
+        const label =
+          os === "android"
+            ? isHost(href, "play.google.com")
+              ? `Get ${app} on Google Play`
+              : `Download ${app} for Android`
+            : isHost(href, "testflight.apple.com")
+              ? `Join the ${app} TestFlight beta`
+              : `Get ${app} on the App Store`;
+        return (
+          <a
+            key={os}
+            className="platform-btn"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            title={label}
+            onClick={(e) => followMobile(e, os)}
+          >
+            <Icon
+              name={
+                os === "ios"
+                  ? "appstore"
+                  : isHost(href, "play.google.com")
+                    ? "googleplay"
+                    : "android"
+              }
+              size={18}
+            />
+          </a>
+        );
+      })}
+      {desktop.map((os) => {
+        const label = `Download ${app} for ${DESKTOP_LABELS[os]}${price ? ` (${price})` : ""}`;
+        return (
+          <button
+            key={os}
+            type="button"
+            className="platform-btn"
+            aria-label={label}
+            title={label}
+            onClick={() => open(os, app, desktop)}
+          >
+            <Icon name={DESKTOP_ICONS[os]} size={18} />
+          </button>
+        );
+      })}
+      {price && desktop.length > 0 && (
+        <span className="platform-price">Desktop · {price}</span>
       )}
     </div>
   );
