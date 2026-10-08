@@ -5,7 +5,7 @@ import { DownloadModal, type Platform } from "./DownloadModal";
 
 type DownloadModalContextValue = {
   /* `app` is the backend app_name; omit it for the default Kiɗa installer. */
-  open: (platform: Platform, app?: string) => void;
+  open: (platform: Platform, app?: string, platforms?: Platform[]) => void;
   close: () => void;
 };
 
@@ -30,9 +30,13 @@ export function DownloadModalProvider({
 }) {
   const [platform, setPlatform] = useState<Platform | null>(null);
   const [app, setApp] = useState<string | undefined>(undefined);
+  const [platforms, setPlatforms] = useState<Platform[] | undefined>(
+    undefined,
+  );
 
-  const open = useCallback((p: Platform, a?: string) => {
+  const open = useCallback((p: Platform, a?: string, ps?: Platform[]) => {
     setApp(a);
+    setPlatforms(ps);
     setPlatform(p);
   }, []);
   const close = useCallback(() => setPlatform(null), []);
@@ -44,6 +48,7 @@ export function DownloadModalProvider({
         <DownloadModal
           platform={platform}
           app={app}
+          platforms={platforms}
           onClose={close}
           onSwitchPlatform={setPlatform}
         />

@@ -60,12 +60,15 @@ function formatPrice(amount?: string, currency?: string) {
 export function DownloadModal({
   platform,
   app,
+  platforms: offered,
   onClose,
   onSwitchPlatform,
 }: {
   platform: Platform;
   /* Backend app_name; omitted for the default Kiɗa installer. */
   app?: string;
+  /* Platforms the app has builds for; defaults to all desktop platforms. */
+  platforms?: Platform[];
   onClose: () => void;
   onSwitchPlatform: (p: Platform) => void;
 }) {
@@ -76,7 +79,7 @@ export function DownloadModal({
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   const name = app ?? "Kiɗa";
-  const platforms = app ? APP_PLATFORMS : KIDA_PLATFORMS;
+  const platforms = app ? (offered ?? APP_PLATFORMS) : KIDA_PLATFORMS;
   const other: Platform = platform === "macos" ? "windows" : "macos";
   const busy = status === "loading" || status === "redirecting";
 
@@ -230,7 +233,7 @@ export function DownloadModal({
                 ? "Enter your email and we'll send your download link. If there's a fee, you'll pay first and the link follows by email."
                 : `Enter your email and we'll send your ${LABELS[platform]} download link.`}
             </p>
-            {app && (
+            {app && platforms.length > 1 && (
               <div className="dl-os" role="radiogroup" aria-label="Platform">
                 {platforms.map((p) => (
                   <button

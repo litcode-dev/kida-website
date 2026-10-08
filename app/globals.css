@@ -691,4 +691,6 @@ footer .nav-logo .mark{color:var(--foot-accent)}
 }
 .product-letter{font-family:var(--display);font-weight:900;font-size:28px;line-height:1}
 .product-store{align-self:flex-start;margin-top:10px;white-space:nowrap}
+.product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.product-actions .product-store{margin-top:0}
 .payment-ref{font-family:var(--mono)!important;font-size:15px!important;word-break:break-all}

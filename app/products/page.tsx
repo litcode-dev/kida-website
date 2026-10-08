@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DesktopDownloadButton } from "../components/DesktopDownloadButton";
+import { AppDownloads } from "../components/AppDownloads";
 import { Footer } from "../components/Footer";
 import { Icon } from "../components/Icon";
 import { KidaMark } from "../components/KidaMark";
@@ -34,8 +34,8 @@ type Product = {
   mark: React.ReactNode;
   /* Google Play listing, for mobile apps. */
   playStoreUrl?: string;
-  /* Backend app_name for desktop downloads sent by email (paid or free). */
-  desktopApp?: string;
+  /* Backend app name: store links and desktop downloads come from the API. */
+  apiApp?: string;
 };
 
 const PRODUCTS: Product[] = [
@@ -52,7 +52,7 @@ const PRODUCTS: Product[] = [
     tagline: "Music theory companion",
     body: "Toniq is a music theory companion for players and producers. Play from a MIDI keyboard, a MIDI file, or the on-screen piano, and Toniq instantly names the chord, finds the key you're in, and shows each chord's role as a Roman numeral. It suggests the chords likely to come next, shows the notes on a staff and on a guitar neck, and spells everything correctly for the key: Bb7 in flat keys, not A#7. Use it as a standalone app with your own instruments, or as a VST3/AU plugin inside your DAW.",
     mark: <span className="product-letter">T</span>,
-    desktopApp: "Toniq",
+    apiApp: "Toniq",
   },
 ];
 
@@ -99,13 +99,8 @@ export default function ProductsPage() {
                     <Icon name="googleplay" size={18} />
                     Get it on Google Play
                   </a>
-                ) : p.desktopApp ? (
-                  <DesktopDownloadButton
-                    app={p.desktopApp}
-                    className="btn btn-solid product-store"
-                  >
-                    {`Get ${p.name} for Mac, Windows & Linux`}
-                  </DesktopDownloadButton>
+                ) : p.apiApp ? (
+                  <AppDownloads app={p.apiApp} />
                 ) : null}
               </article>
             ))}
