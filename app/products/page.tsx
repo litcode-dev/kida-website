@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Footer } from "../components/Footer";
-import { KidaMark } from "../components/KidaMark";
 import { Navbar } from "../components/Navbar";
-import { ProductGrid, type Product } from "../components/ProductGrid";
+import { ProductGrid } from "../components/ProductGrid";
 import { RevealOnScroll } from "../components/RevealOnScroll";
 import { LEGAL_ENTITY } from "../legal";
 
 const description =
-  "The apps made by LitCode — Kiɗa, the live performance companion for working musicians, and Toniq, a music theory companion for players and producers.";
+  "Apps for musicians made by LitCode, for Android, iOS, Mac, Windows and Linux.";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -25,24 +24,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
-const PRODUCTS: Product[] = [
-  {
-    name: "Kiɗa",
-    tagline: "Live performance companion",
-    body: "Loops, pads and click for working musicians — built for the stage, the church and the studio.",
-    mark: <KidaMark size={30} />,
-    playStoreUrl:
-      "https://play.google.com/store/apps/details?id=com.litecode.kida",
-  },
-  {
-    name: "Toniq",
-    tagline: "Music theory companion",
-    body: "Toniq is a music theory companion for players and producers. Play from a MIDI keyboard, a MIDI file, or the on-screen piano, and Toniq instantly names the chord, finds the key you're in, and shows each chord's role as a Roman numeral. It suggests the chords likely to come next, shows the notes on a staff and on a guitar neck, and spells everything correctly for the key: Bb7 in flat keys, not A#7. Use it as a standalone app with your own instruments, or as a VST3/AU plugin inside your DAW.",
-    mark: <span className="product-letter">T</span>,
-    apiApp: "Toniq",
-  },
-];
 
 export default function ProductsPage() {
   return (
@@ -69,7 +50,7 @@ export default function ProductsPage() {
         </header>
 
         <div className="wrap contact-wrap">
-          <ProductGrid products={PRODUCTS} hide={["Kida"]} />
+          <ProductGrid />
         </div>
       </main>
       <Footer />

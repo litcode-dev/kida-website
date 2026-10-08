@@ -8,43 +8,37 @@ import {
   sameApp,
   type PublicApp,
 } from "./AppDownloads";
-import { Icon } from "./Icon";
+import { KidaMark } from "./KidaMark";
 
-export type Product = {
-  name: string;
-  tagline: string;
-  /* Shown until the API's description loads, or if it has none. */
-  body: string;
-  mark: React.ReactNode;
-  /* Google Play listing, for apps not published through the API. */
-  playStoreUrl?: string;
-  /* Backend app name: description, store links and desktop downloads
-     come from GET /app/apps. */
-  apiApp?: string;
-};
+/* undefined while loading, null when the list couldn't be fetched. */
+type Apps = PublicApp[] | null | undefined;
 
-/* The products page grid. Known products keep their own copy and mark;
-   any other active app the API lists gets a card of its own. */
-export function ProductGrid({
-  products,
-  hide = [],
-}: {
-  products: Product[];
-  /* API app names already covered by a card without `apiApp`. */
-  hide?: string[];
-}) {
-  const [apps, setApps] = useState<PublicApp[] | null>(null);
+/* The products page grid: one card per active app in GET /app/apps. */
+export function ProductGrid() {
+  const [apps, setApps] = useState<Apps>(undefined);
   const fetchedAt = useRef(0);
+
+  const load = useCallback(async () => {
+    let list: PublicApp[] | null = null;
+    try {
+      list = await fetchApps();
+    } catch {
+      list = null;
+    }
+    fetchedAt.current = Date.now();
+    setApps(list);
+    return list;
+  }, []);
 
   useEffect(() => {
     let live = true;
     fetchApps()
+      .catch(() => null)
       .then((list) => {
         if (!live) return;
         fetchedAt.current = Date.now();
         setApps(list);
-      })
-      .catch(() => {});
+      });
     return () => {
       live = false;
     };
@@ -52,68 +46,58 @@ export function ProductGrid({
 
   const stale = useCallback(() => isStale(fetchedAt.current), []);
 
-  const freshInfo = useCallback(async (name: string) => {
-    try {
-      const list = await fetchApps();
-      fetchedAt.current = Date.now();
-      setApps(list);
-      return list?.find((a) => sameApp(a.name, name)) ?? null;
-    } catch {
-      return null;
-    }
-  }, []);
-
-  const find = (name: string) =>
-    apps?.find((a) => sameApp(a.name, name)) ?? null;
-
-  const known = [
-    ...hide,
-    ...products.flatMap((p) => (p.apiApp ? [p.apiApp] : [])),
-  ];
-  const extra = (apps ?? []).filter(
-    (a) => !known.some((name) => sameApp(a.name, name)),
+  const freshInfo = useCallback(
+    async (name: string) =>
+      (await load())?.find((a) => sameApp(a.name, name)) ?? null,
+    [load],
   );
+
+  if (apps === undefined) {
+    return (
+      <div className="product-grid" aria-busy="true" aria-label="Loading products">
+        {[0, 1].map((i) => (
+          <div key={i} className="product-card product-skeleton" aria-hidden />
+        ))}
+      </div>
+    );
+  }
+
+  if (apps === null || apps.length === 0) {
+    return (
+      <div className="product-empty">
+        <p>
+          {apps === null
+            ? "We couldn't load our products just now."
+            : "No products are available right now."}
+        </p>
+        {apps === null && (
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            onClick={() => {
+              setApps(undefined);
+              load();
+            }}
+          >
+            Try again
+          </button>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="product-grid">
-      {products.map((p) => {
-        const info = p.apiApp ? find(p.apiApp) : null;
-        return (
-          <article key={p.name} className="product-card reveal">
-            <span className="product-mark">{p.mark}</span>
-            <span className="legal-sec-num">{p.tagline}</span>
-            <h2>{p.name}</h2>
-            <p>{info?.description || p.body}</p>
-            {p.apiApp ? (
-              <AppDownloads
-                app={p.apiApp}
-                info={info}
-                stale={stale}
-                freshInfo={() => freshInfo(p.apiApp!)}
-              />
-            ) : p.playStoreUrl ? (
-              <div className="platform-row">
-                <a
-                  className="platform-btn"
-                  href={p.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Get ${p.name} on Google Play`}
-                  title={`Get ${p.name} on Google Play`}
-                >
-                  <Icon name="googleplay" size={18} />
-                </a>
-              </div>
-            ) : null}
-          </article>
-        );
-      })}
-      {extra.map((a) => (
+      {apps.map((a) => (
         <article key={a.name} className="product-card">
           <span className="product-mark">
-            <span className="product-letter">
-              {a.name.charAt(0).toUpperCase()}
-            </span>
+            {sameApp(a.name, "Kida") ? (
+              <KidaMark size={30} />
+            ) : (
+              <span className="product-letter">
+                {a.name.charAt(0).toUpperCase()}
+              </span>
+            )}
           </span>
           <h2>{a.name}</h2>
           {a.description && <p>{a.description}</p>}
