@@ -17,7 +17,7 @@ const KIDA_PLATFORMS: Platform[] = ["macos", "windows"];
 const APP_PLATFORMS: Platform[] = ["macos", "windows", "linux"];
 
 /* Gateway the backend uses when a named app is paid. */
-const PAYMENT_PROVIDER = "squad";
+const PAYMENT_PROVIDER = "flutterwave";
 
 type DownloadResponse = {
   message?: string;
