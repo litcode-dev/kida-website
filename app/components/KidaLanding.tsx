@@ -546,6 +546,7 @@ export function KidaLanding() {
           <a href="#how">HOW IT WORKS</a>
           <a href="#marketplace">LIBRARY</a>
           <a href="#pricing">PRICING</a>
+          <a href="/products">PRODUCTS</a>
         </div>
         <button
           type="button"
