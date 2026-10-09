@@ -64,6 +64,17 @@ function formatPrice(price: string | null, currency: string | null) {
   }
 }
 
+/* The card's price line: what desktop checkout charges, "on desktop" when
+   the phone apps are free, or "Free" when nothing is paid. */
+export function priceLabel(info: PublicApp) {
+  const paidDesktop = info.paid_os?.some((os) =>
+    DESKTOP.includes(os as Platform),
+  );
+  const price = paidDesktop ? formatPrice(info.price, info.currency) : null;
+  if (!price) return info.is_paid ? null : "Free";
+  return info.links?.android || info.links?.ios ? `${price} on desktop` : price;
+}
+
 function isHost(url: string, host: string) {
   try {
     return new URL(url).hostname.endsWith(host);
@@ -169,9 +180,6 @@ export function AppDownloads({
           </button>
         );
       })}
-      {price && desktop.length > 0 && (
-        <span className="platform-price">Desktop · {price}</span>
-      )}
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Footer } from "./Footer";
 import { Icon } from "./Icon";
 import { KidaMark } from "./KidaMark";
-import { useDownloadModal } from "./DownloadModalProvider";
 
 const KEYS = [
   "C",
@@ -80,7 +79,6 @@ function PackRow({
 export function KidaLanding() {
   const [activeKey, setActiveKey] = useState(2); // D
   const [playing, setPlaying] = useState(false);
-  const { open } = useDownloadModal();
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const engineRef = useRef<Engine | null>(null);
