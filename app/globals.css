@@ -697,7 +697,7 @@ footer .nav-logo .mark{color:var(--foot-accent)}
   transition:border-color .2s,color .2s,transform .2s;
 }
 .platform-btn:hover{border-color:var(--lemon);color:var(--lemon);transform:translateY(-1px)}
-.product-price{font-family:var(--mono);font-size:14px;letter-spacing:.04em;color:var(--lemon)}
+.product-price{font-family:var(--mono);font-size:18px;font-weight:500;letter-spacing:.04em;color:var(--lemon)}
 .payment-ref{font-family:var(--mono)!important;font-size:15px!important;word-break:break-all}
 .product-card .platform-row{margin-top:auto;padding-top:2px}
 .product-skeleton{min-height:260px;animation:product-pulse 1.4s ease-in-out infinite}
