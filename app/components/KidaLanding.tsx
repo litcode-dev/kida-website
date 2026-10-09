@@ -548,13 +548,9 @@ export function KidaLanding() {
           <a href="#pricing">PRICING</a>
           <a href="/products">PRODUCTS</a>
         </div>
-        <button
-          type="button"
-          className="nav-cta"
-          onClick={() => open("macos")}
-        >
-          GET KIƊA
-        </button>
+        <a className="nav-cta" href="/products">
+          GET APPS
+        </a>
       </nav>
 
       <header>
