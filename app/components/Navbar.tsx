@@ -22,8 +22,8 @@ export function Navbar() {
           {/* <a className="sign-in" href="#">
             Sign in
           </a> */}
-          <a className="btn btn-primary btn-sm" href="#download">
-            Get Kiɗa
+          <a className="btn btn-primary btn-sm" href="/products">
+            Get Apps
           </a>
         </div>
       </div>
