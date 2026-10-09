@@ -5,6 +5,7 @@ import {
   AppDownloads,
   fetchApps,
   isStale,
+  priceLabel,
   sameApp,
   type PublicApp,
 } from "./AppDownloads";
@@ -88,27 +89,31 @@ export function ProductGrid() {
 
   return (
     <div className="product-grid">
-      {apps.map((a) => (
-        <article key={a.name} className="product-card">
-          <span className="product-mark">
-            {sameApp(a.name, "Kida") ? (
-              <KidaMark size={30} />
-            ) : (
-              <span className="product-letter">
-                {a.name.charAt(0).toUpperCase()}
-              </span>
-            )}
-          </span>
-          <h2>{a.name}</h2>
-          {a.description && <p>{a.description}</p>}
-          <AppDownloads
-            app={a.name}
-            info={a}
-            stale={stale}
-            freshInfo={() => freshInfo(a.name)}
-          />
-        </article>
-      ))}
+      {apps.map((a) => {
+        const price = priceLabel(a);
+        return (
+          <article key={a.name} className="product-card">
+            <span className="product-mark">
+              {sameApp(a.name, "Kida") ? (
+                <KidaMark size={30} />
+              ) : (
+                <span className="product-letter">
+                  {a.name.charAt(0).toUpperCase()}
+                </span>
+              )}
+            </span>
+            <h2>{a.name}</h2>
+            {price && <span className="product-price">{price}</span>}
+            {a.description && <p>{a.description}</p>}
+            <AppDownloads
+              app={a.name}
+              info={a}
+              stale={stale}
+              freshInfo={() => freshInfo(a.name)}
+            />
+          </article>
+        );
+      })}
     </div>
   );
 }
